@@ -14,6 +14,16 @@
         }
     ],
     "files.exclude": {
-        "kubejs/probe/": true
+        "kubejs/probe/": true,
+        "backups/": true,
+        "cache/": true,
+        "coremods/": true,
+        "data/": true,
+        "defaultconfigs/": true,
+        "journeymap/": true,
+        "local/": true,
+        "modernfix/": true,
+        "debug/": true,
+        "server-resource-packs/": true
     }
 }
