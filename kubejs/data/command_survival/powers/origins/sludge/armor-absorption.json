@@ -1,0 +1,6 @@
+{
+	"name": "Armor Absorption",
+	"description": "Converts armor to extra max health.",
+
+	"type": "origins:simple"
+}

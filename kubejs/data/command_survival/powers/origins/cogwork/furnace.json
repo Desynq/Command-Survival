@@ -1,0 +1,517 @@
+{
+	"name": "Blast Furnace",
+	"description": "You can instantly smelt ores into ingots",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"text": "Sneak and right click while holding an ore",
+			"sprite": "origins:textures/gui/badge/info.png"
+		}
+	],
+	"hidden": true,
+	"type": "origins:multiple",
+	"ironsmelt": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:raw_iron"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 8
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s minecraft:raw_iron 1"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s minecraft:iron_ingot 1"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -8,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:item.firecharge.use ambient @s"
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:flame",
+					"count": 30,
+					"speed": 0.1,
+					"force": true,
+					"offset_y": 0.5
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"ironcrushsmelt": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "create:crushed_raw_iron"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 8
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s create:crushed_raw_iron 1"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s minecraft:iron_ingot 1"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -8,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:item.firecharge.use ambient @s"
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:flame",
+					"count": 30,
+					"speed": 0.1,
+					"force": true,
+					"offset_y": 0.5
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"goldsmelt": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:raw_gold"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 8
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s minecraft:raw_gold 1"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s minecraft:gold_ingot 1"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -8,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:item.firecharge.use ambient @s"
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:flame",
+					"count": 30,
+					"speed": 0.1,
+					"force": true,
+					"offset_y": 0.5
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"crushedgold": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "create:crushed_raw_gold"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 8
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s create:crushed_raw_gold 1"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s minecraft:gold_ingot 1"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -8,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:item.firecharge.use ambient @s"
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:flame",
+					"count": 30,
+					"speed": 0.1,
+					"force": true,
+					"offset_y": 0.5
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"rawcopper": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:raw_copper"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 8
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s minecraft:raw_copper 1"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s minecraft:copper_ingot 1"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -8,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:item.firecharge.use ambient @s"
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:flame",
+					"count": 30,
+					"speed": 0.1,
+					"force": true,
+					"offset_y": 0.5
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"coppercrushed": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "create:crushed_raw_copper"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 8
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s create:crushed_raw_copper 1"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s minecraft:copper_ingot 1"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -8,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:item.firecharge.use ambient @s"
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:flame",
+					"count": 30,
+					"speed": 0.1,
+					"force": true,
+					"offset_y": 0.5
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"zincraw": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "create:raw_zinc"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 8
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s create:raw_zinc 1"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s create:zinc_ingot 1"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -8,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:item.firecharge.use ambient @s"
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:flame",
+					"count": 30,
+					"speed": 0.1,
+					"force": true,
+					"offset_y": 0.5
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"zinccrushed": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "create:crushed_raw_zinc"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 8
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s create:crushed_raw_zinc 1"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s create:zinc_ingot 1"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -8,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:item.firecharge.use ambient @s"
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:flame",
+					"count": 30,
+					"speed": 0.1,
+					"force": true,
+					"offset_y": 0.5
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	}
+}

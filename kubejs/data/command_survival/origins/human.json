@@ -1,0 +1,13 @@
+{
+	"name": "Human",
+	"description": "Considered to be the \"original\" humanoid, humans fair well in almost every environment and situation but are otherwise unremarkable in unique traits.",
+
+	"powers": [
+		"command_survival:origins/human/jack-of-all-trades"
+	],
+	"icon": {
+		"item": "minecraft:player_head"
+	},
+	"order": 1,
+	"impact": 0
+}

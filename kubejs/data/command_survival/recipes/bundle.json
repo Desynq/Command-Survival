@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"010",
+		"232",
+		" 2 "
+	],
+	"key": {
+		"0": {
+			"item": "minecraft:lead"
+		},
+		"1": {
+			"item": "minecraft:diamond"
+		},
+		"2": {
+			"item": "minecraft:leather"
+		},
+		"3": {
+			"item": "minecraft:chest"
+		}
+	},
+	"result": {
+		"item": "minecraft:bundle"
+	}
+}

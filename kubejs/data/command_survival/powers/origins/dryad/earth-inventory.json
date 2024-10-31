@@ -1,0 +1,15 @@
+{
+	"name": "Earth Inventory",
+	"description": " ",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "You gain 27 extra slots"
+		}
+	],
+
+	"type": "origins:inventory",
+	"container_type": "chest",
+	"key": "key.origins.secondary_active"
+}

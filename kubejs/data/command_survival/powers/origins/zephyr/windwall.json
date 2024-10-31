@@ -1,0 +1,188 @@
+{
+    "type": "origins:multiple",
+    "windcharge": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 2,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 0
+        }
+    },
+    "chargerefresh": {
+        "type": "origins:action_over_time",
+        "interval": 400,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "command_survival:origins/zephyr/windwall_windcharge",
+            "change": 1,
+            "operation": "add"
+        }
+    },
+    "projblock": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "command_survival:origins/zephyr/windwall_windcharge",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:projectile"
+        },
+        "modifier": {
+            "operation": "set_base",
+            "value": 0
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "command_survival:origins/zephyr/windwall_velocitybinary",
+                    "change": 1,
+                    "operation": "set"
+                }
+            ]
+        }
+    },
+    "velocitybinary": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "max_action": {
+            "type": "origins:delay",
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "command_survival:origins/zephyr/windwall_velocitybinary",
+                "change": 0,
+                "operation": "set"
+            },
+            "ticks": 3
+        }
+    },
+    "addvelocity": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "command_survival:origins/zephyr/windwall_velocitybinary",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "command_survival:origins/zephyr/windwall_windcharge",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 3,
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:arrow"
+                }
+            },
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:add_velocity",
+                        "z": 2,
+                        "client": true,
+                        "server": true
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "command_survival:origins/zephyr/windwall_velocitybinary",
+                            "change": 0,
+                            "operation": "set"
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "command_survival:origins/zephyr/windwall_windcharge",
+                            "change": -1,
+                            "operation": "add"
+                        }
+                    },
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:spawn_particles",
+                            "particle": "minecraft:sweep_attack",
+                            "count": 1
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:play_sound",
+                            "sound": "minecraft:entity.ender_dragon.flap",
+                            "volume": 1,
+                            "pitch": 1
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "fx": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "command_survival:origins/zephyr/windwall_windcharge",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 3,
+        "entity_action": {
+            "type": "origins:spawn_particles",
+            "particle": "minecraft:poof",
+            "count": 1,
+            "speed": 0.1,
+            "spread": {
+                "x": 0.5,
+                "y": 0.6,
+                "z": 0.5
+            }
+        }
+    },
+    "fx2": {
+        "condition": {
+            "type": "origins:resource",
+            "resource": "command_survival:origins/zephyr/windwall_windcharge",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "type": "origins:action_over_time",
+        "interval": 8,
+        "entity_action": {
+            "type": "origins:spawn_particles",
+            "particle": "minecraft:sweep_attack",
+            "count": 1,
+            "speed": 0.1,
+            "spread": {
+                "x": 0.5,
+                "y": 0.6,
+                "z": 0.5
+            },
+            "offset_y": 0.6
+        }
+    }
+}

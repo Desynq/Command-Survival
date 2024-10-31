@@ -1,0 +1,241 @@
+{
+	"name": "Overheat",
+	"description": "You do not take fire damage, and instead gain overheat when taking fire damage",
+	"type": "origins:multiple",
+	"overheat": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 100,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 0
+		}
+	},
+	"coolingpassive": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/overheat_overheat",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"comparison": ">=",
+					"compare_to": 0
+				}
+			]
+		},
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/overheat_overheat",
+			"change": -1,
+			"operation": "add"
+		}
+	},
+	"coolingactive": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/overheat_overheat",
+					"comparison": ">",
+					"compare_to": 50
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"comparison": ">",
+					"compare_to": 0
+				}
+			]
+		},
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/overheat_overheat",
+					"change": -1,
+					"operation": "add"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"change": -2,
+					"operation": "add"
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:block.fire.extinguish",
+					"volume": 1,
+					"pitch": 1
+				}
+			]
+		}
+	},
+	"heatcritical": {
+		"condition": {
+			"type": "origins:resource",
+			"resource": "command_survival:origins/cogwork/overheat_overheat",
+			"comparison": ">=",
+			"compare_to": 95
+		},
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:smoke",
+					"count": 10,
+					"speed": 0.1,
+					"spread": {
+						"x": 0,
+						"y": 0.4,
+						"z": 0
+					},
+					"offset_y": 1
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.creeper.primed",
+					"volume": 1,
+					"pitch": 1
+				}
+			]
+		}
+	},
+	"heatcritical2": {
+		"condition": {
+			"type": "origins:resource",
+			"resource": "command_survival:origins/cogwork/overheat_overheat",
+			"comparison": ">=",
+			"compare_to": 95
+		},
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "title @s subtitle {\"color\":\"red\",\"text\":\"Warning: Heat Critical\"}"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "title @s title \"\""
+				}
+			]
+		}
+	},
+	"explode": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/overheat_overheat",
+					"comparison": "==",
+					"compare_to": 100
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		},
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:explode",
+					"power": 3,
+					"destruction_type": "break",
+					"damage_self": true,
+					"create_fire": true
+				},
+				{
+					"type": "origins:play_sound",
+					"category": "master",
+					"pitch": 1,
+					"sound": "minecraft:entity.generic.explode",
+					"volume": 3
+				},
+				{
+					"type": "origins:damage",
+					"amount": 100,
+					"damage_type": "minecraft:explosion"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/overheat_overheat",
+					"change": 0,
+					"operation": "set"
+				}
+			]
+		}
+	},
+	"firedamage": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:fire"
+		},
+		"modifier": {
+			"operation": "set_base",
+			"value": 0
+		},
+		"self_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/overheat_overheat",
+					"change": 2,
+					"operation": "add"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": 2,
+					"operation": "add"
+				}
+			]
+		}
+	},
+	"watercooling": {
+		"condition": {
+			"type": "origins:in_block",
+			"block_condition": {
+				"type": "origins:fluid",
+				"fluid_condition": {
+					"type": "origins:fluid",
+					"fluid": "minecraft:water"
+				}
+			}
+		},
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/overheat_overheat",
+			"change": -1,
+			"operation": "add"
+		}
+	}
+}

@@ -1,0 +1,134 @@
+{
+	"name": "Waterlogged",
+	"description": "You do not drown, however you sink in water, and lose fuel while submerged unless you have water breathing",
+	"type": "origins:multiple",
+	"nodrown": {
+		"condition": {
+			"type": "origins:submerged_in",
+			"fluid": "minecraft:water"
+		},
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:gain_air",
+			"value": 20
+		}
+	},
+
+	"fueldrain": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:submerged_in",
+					"fluid": "minecraft:water"
+				},
+				{
+					"inverted": true,
+					"type": "origins:status_effect",
+					"effect": "minecraft:water_breathing"
+				}
+			]
+		},
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -10,
+					"operation": "add"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"change": 10,
+					"operation": "add"
+				}
+			]
+		}
+	},
+
+	"modify-falling-in-water": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:in_block",
+					"block_condition": {
+						"type": "origins:fluid",
+						"fluid_condition": {
+							"type": "origins:in_tag",
+							"tag": "minecraft:water"
+						}
+					}
+				},
+				{
+					"inverted": true,
+					"type": "origins:status_effect",
+					"effect": "minecraft:water_breathing"
+				}
+			]
+		},
+		"type": "origins:modify_falling",
+		"velocity": 0.03,
+		"take_fall_damage": false
+	},
+
+	"ignore-water": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:in_block",
+					"block_condition": {
+						"type": "origins:fluid",
+						"fluid_condition": {
+							"type": "origins:in_tag",
+							"tag": "minecraft:water"
+						}
+					}
+				},
+				{
+					"inverted": true,
+					"type": "origins:status_effect",
+					"effect": "minecraft:water_breathing"
+				}
+			]
+		},
+		"type": "origins:ignore_water"
+	},
+
+	"slow-movement-in-water": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:in_block",
+					"block_condition": {
+						"type": "origins:fluid",
+						"fluid_condition": {
+							"type": "origins:in_tag",
+							"tag": "minecraft:water"
+						}
+					}
+				},
+				{
+					"inverted": true,
+					"type": "origins:status_effect",
+					"effect": "minecraft:water_breathing"
+				}
+			]
+		},
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"operation": "addition",
+			"value": -0.025,
+			"attribute": "minecraft:generic.movement_speed"
+		},
+		"tick_rate": 20,
+		"update_health": true
+	}
+}

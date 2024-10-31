@@ -1,0 +1,13 @@
+{
+	"name": "Disproportional",
+	"description": "The effects of the warp virus have left your body greatly disproportional with inhuman arm proportions allowing for longer block and entity reach.",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "+1 Block Reach\n+1 Entity Reach"
+		}
+	],
+
+	"type": "origins:simple"
+}

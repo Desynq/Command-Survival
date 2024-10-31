@@ -1,0 +1,280 @@
+{
+	"name": "Heavy Machinery",
+	"description": "You can press ingots into plates, and instantly smelt ores into ingots",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"text": "Sneak and right click while holding an ingot/ore",
+			"sprite": "origins:textures/gui/badge/info.png"
+		}
+	],
+	"type": "origins:multiple",
+	"ironpress": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:iron_ingot"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 5
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"comparison": ">=",
+					"compare_to": 5
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s minecraft:iron_ingot 1"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s create:iron_sheet 1"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -5,
+					"operation": "add"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"change": -5,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound create:mechanical_press_activation ambient @s"
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"goldpress": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:gold_ingot"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 5
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"comparison": ">=",
+					"compare_to": 5
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s minecraft:gold_ingot 1"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s create:golden_sheet 1"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -5,
+					"operation": "add"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"change": -5,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound create:mechanical_press_activation ambient @s"
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"copperpress": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:copper_ingot"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 5
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"comparison": ">=",
+					"compare_to": 5
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s minecraft:copper_ingot 1"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s create:copper_sheet 1"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -5,
+					"operation": "add"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"change": -5,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound create:mechanical_press_activation ambient @s"
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"brasspress": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "create:brass_ingot"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 5
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"comparison": ">=",
+					"compare_to": 5
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s minecraft:brass_ingot 1"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s create:brass_sheet 1"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -5,
+					"operation": "add"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"change": -5,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound create:mechanical_press_activation ambient @s"
+				}
+			]
+		},
+		"cooldown": 30,
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	}
+}

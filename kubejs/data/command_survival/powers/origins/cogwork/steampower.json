@@ -1,0 +1,101 @@
+{
+	"name": "Steam Powered",
+	"description": "You cannot eat, and instead rely on fuel, and water in order to power your internal steam engine.",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"text": "You can eat furnace fuel, and drink water to replenish your bars",
+			"sprite": "origins:textures/gui/badge/info.png"
+		}
+	],
+	"type": "origins:multiple",
+	"fuel": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 400,
+		"start_value": 100,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 7
+		}
+	},
+	"water": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 200,
+		"start_value": 50,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 1
+		}
+	},
+	"feed": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"inverted": true,
+					"type": "origins:food_level",
+					"comparison": "==",
+					"compare_to": 20
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 8
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"comparison": ">=",
+					"compare_to": 2
+				}
+			]
+		},
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:feed",
+					"food": 1,
+					"saturation": 0
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"change": -8,
+					"operation": "add"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"change": -2,
+					"operation": "add"
+				}
+			]
+		}
+	},
+	"noregen": {
+		"type": "origins:disable_regen"
+	},
+	"noeat": {
+		"type": "origins:modify_food",
+		"item_condition": {
+			"type": "origins:food"
+		},
+		"food_modifier": {
+			"operation": "set_base",
+			"value": 0
+		},
+		"saturation_modifier": {
+			"operation": "set_base",
+			"value": 0
+		},
+		"prevent_effects": true
+	}
+}

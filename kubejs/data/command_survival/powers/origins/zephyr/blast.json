@@ -1,0 +1,137 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "tag": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:sneaking"
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute positioned ^ ^0.5 ^4 run tag @e[distance=..5] add blast",
+            "permission_level": 4
+        },
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 5
+        },
+        "key": "key.origins.secondary_active"
+    },
+    "sound": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:sneaking"
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:play_sound",
+            "sound": "minecraft:entity.blaze.shoot"
+        },
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": "key.origins.secondary_active"
+    },
+    "effect": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:sneaking"
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 10,
+            "include_target": false,
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:spawn_particles",
+                    "particle": "minecraft:sweep_attack",
+                    "count": 1
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags: ['blast']}"
+                }
+            }
+        },
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": "key.origins.secondary_active"
+    },
+    "push": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:sneaking"
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+                "type": "origins:area_of_effect",
+                "radius": 10,
+                "include_target": false,
+                "bientity_action": {
+                    "type": "origins:add_velocity",
+                    "z": 4
+                },
+                "bientity_condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:nbt",
+                        "nbt": "{Tags: ['blast']}"
+                    }
+                }
+            }
+        },
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": "key.origins.secondary_active"
+    },
+    "removetag": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:sneaking"
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:delay",
+            "ticks": 3,
+            "action": {
+                "type": "origins:execute_command",
+                "command": "tag @e[tag=blast] remove blast",
+                "permission_level": 4
+            }
+        },
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": "key.origins.secondary_active"
+    },
+    "particles": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:sneaking"
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle minecraft:poof ^ ^ ^5 3 3 3 0.1 400"
+        },
+        "cooldown": 100,
+        "key": "secondary"
+    }
+}

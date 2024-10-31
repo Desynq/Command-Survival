@@ -1,0 +1,21 @@
+{
+    "name": "glide",
+    "description": "glide",
+    "type": "origins:multiple",
+    "slowfall": {
+        "condition": {
+            "inverted": true,
+            "type": "origins:sneaking"
+        },
+        "type": "origins:modify_falling",
+        "velocity": 0.03,
+        "take_fall_damage": true
+    },
+    "fastair": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.5
+        }
+    }
+}

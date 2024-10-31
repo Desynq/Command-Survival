@@ -1,0 +1,6 @@
+{
+	"name": "Conservation of Mass",
+	"description": "Converts armor to extra max health.",
+
+	"type": "origins:simple"
+}

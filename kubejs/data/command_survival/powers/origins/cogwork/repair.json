@@ -1,0 +1,238 @@
+{
+	"name": "Self Repair",
+	"description": "You have extra health due to your construction, however you cannot heal normally, and must instead repair yourself using raw materials.",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"text": "You can use metal sheets to repair yourself",
+			"sprite": "origins:textures/gui/badge/info.png"
+		}
+	],
+	"type": "origins:multiple",
+
+	"morehp": {
+		"type": "origins:attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.max_health",
+			"operation": "addition",
+			"value": 20
+		},
+		"update_health": false
+	},
+
+	"coppersheet": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "create:copper_sheet"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:heal",
+			"amount": 2
+		},
+		"use_action": "eat",
+		"sound": "minecraft:block.anvil.place"
+	},
+
+	"ironsheet": {
+		"condition": {
+			"type": "origins:resource",
+			"resource": "command_survival:origins/cogwork/repair_repaircd",
+			"comparison": "==",
+			"compare_to": 0
+		},
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "create:iron_sheet"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:heal",
+					"amount": 5
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 0,
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "command_survival:origins/cogwork/repair_repaircd",
+						"change": 5,
+						"operation": "set"
+					}
+				}
+			]
+		},
+		"use_action": "eat",
+		"sound": "minecraft:block.anvil.place"
+	},
+	
+	"repaircd": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 5,
+		"start_value": 5,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+			"bar_index": 0,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "command_survival:origins/cogwork/repair_repaircd",
+				"comparison": ">",
+				"compare_to": 0
+			}
+		}
+	},
+	"repaircd2": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/repair_repaircd",
+			"change": -1,
+			"operation": "add"
+		}
+	},
+
+	"goldsheet": {
+		"condition": {
+			"type": "origins:resource",
+			"resource": "command_survival:origins/cogwork/repair_repaircd",
+			"comparison": "==",
+			"compare_to": 0
+		},
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "create:golden_sheet"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:heal",
+					"amount": 8
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 0,
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "command_survival:origins/cogwork/repair_repaircd",
+						"change": 5,
+						"operation": "set"
+					}
+				}
+			]
+		},
+		"sound": "minecraft:block.anvil.place",
+		"use_action": "eat"
+	},
+
+	"brasssheet": {
+		"condition": {
+			"type": "origins:resource",
+			"resource": "command_survival:origins/cogwork/repair_repaircd",
+			"comparison": "==",
+			"compare_to": 0
+		},
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "create:brass_sheet"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:heal",
+					"amount": 10
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 0,
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "command_survival:origins/cogwork/repair_repaircd",
+						"change": 5,
+						"operation": "set"
+					}
+				}
+			]
+		},
+		"sound": "minecraft:block.anvil.place",
+		"use_action": "eat"
+	},
+	"sturdysheet": {
+		"condition": {
+			"type": "origins:resource",
+			"resource": "command_survival:origins/cogwork/repair_repaircd",
+			"comparison": "==",
+			"compare_to": 0
+		},
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "create:sturdy_sheet"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:heal",
+					"amount": 15
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 0,
+					"action": {
+						"type": "origins:change_resource",
+						"resource": "command_survival:origins/cogwork/repair_repaircd",
+						"change": 5,
+						"operation": "set"
+					}
+				}
+			]
+		},
+		"sound": "minecraft:block.anvil.place",
+		"use_action": "eat"
+	}
+}

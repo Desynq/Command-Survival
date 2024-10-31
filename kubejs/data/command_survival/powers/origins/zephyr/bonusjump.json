@@ -1,0 +1,108 @@
+{
+    "name": "jump",
+    "description": "jump",
+    "type": "origins:multiple",
+    "extrajump": {
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "inverted": true,
+                            "type": "origins:on_block"
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "command_survival:origins/zephyr/bonusjump_jumpcount",
+                            "comparison": ">",
+                            "compare_to": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "y": 1.5,
+                    "space": "world",
+                    "client": true,
+                    "server": true
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "command_survival:origins/zephyr/bonusjump_jumpcount",
+                    "change": -1,
+                    "operation": "add"
+                },
+                {
+                    "type": "origins:spawn_particles",
+                    "particle": "minecraft:cloud",
+                    "count": 30,
+                    "speed": 0.2,
+                    "force": true
+                },
+                {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.ender_dragon.flap",
+                    "volume": 1,
+                    "pitch": 1
+                }
+            ]
+        },
+        "cooldown": 5,
+        "key": {
+            "key": "key.jump"
+        }
+    },
+    "jumpcount": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 3,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_points_01.png",
+            "bar_index": 23
+        }
+    },
+    "jumpregen": {
+        "type": "origins:action_on_land",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "command_survival:origins/zephyr/bonusjump_jumpcount",
+            "change": 3,
+            "operation": "set"
+        }
+    },
+    "jumpboost": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:jump_boost",
+                "duration": 40,
+                "amplifier": 1,
+                "is_ambient": true,
+                "show_particles": false,
+                "show_icon": false
+            }
+        }
+    },
+    "falldmg": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:from_falling"
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        }
+    }
+}

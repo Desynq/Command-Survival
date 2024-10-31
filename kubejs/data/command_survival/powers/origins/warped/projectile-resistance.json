@@ -1,0 +1,13 @@
+{
+	"name": "Projectile Resistance",
+	"description": "While not completely able to evade incoming projectiles, Warped are able dematerialize localized parts of their body during impact to lessen the damage from projectiles.",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "-30% damage from projectiles and bullets"
+		}
+	],
+
+	"type": "origins:simple"
+}

@@ -1,0 +1,20 @@
+{
+	id: "minecraft:player_head",
+	Count: 1b,
+	tag: {
+		SkullOwner: "MHF_Ghast",
+		display: {
+			Name: '["",{"text":"Sleepy Ghast Head","italic":false,"color":"gray"}]'
+		},
+		AttributeModifiers: [
+			{
+				AttributeName: "minecraft:generic.attack_damage",
+				Amount: 0.5,
+				Operation: 1,
+				Slot: "head",
+				UUID: [I; -124926, 22739, 44213, -45478],
+				Name: -939619562
+			}
+		]
+	}
+}

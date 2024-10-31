@@ -1,0 +1,18 @@
+{
+	"type": "origins:prevent_entity_render",
+	"entity_condition": {
+		"type": "origins:and",
+		"conditions": [
+			{
+				"type": "origins:entity_type",
+				"entity_type": "minecraft:player"
+			},
+			{
+				"type": "origins:scoreboard",
+				"objective": "is_moving",
+				"comparison": "==",
+				"compare_to": 0
+			}
+		]
+	}
+}

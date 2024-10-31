@@ -1,0 +1,471 @@
+{
+	"name": "Refuel",
+	"hidden": true,
+	"type": "origins:multiple",
+	"coal": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:coals"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 32,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"coalblock": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:coal_block"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 320,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"kelpblock": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:dried_kelp_block"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 80,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"blazerod": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:blaze_rod"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 128,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"planks": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:planks"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 6,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"logs": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:logs_that_burn"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 24,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"pressureplates": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:wooden_pressure_plates"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 6,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"fence": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:wooden_fences"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 6,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"fencegate": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "forge:fence_gates/wooden"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 6,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"stairs": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:wooden_stairs"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 6,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"trapdoor": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:wooden_trapdoors"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 6,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"slab": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:wooden_slabs"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 3,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"ladder": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:ladder"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 3,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"saplings": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:saplings"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 4,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"wool": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:wool"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 2,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"stick": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:stick"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 2,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"bowl": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:bowl"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 2,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"button": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:wooden_buttons"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 4,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"carpet": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "minecraft:wool_carpets"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 1,
+			"operation": "add"
+		},
+		"use_action": "eat"
+	},
+	"lava": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:lava_bucket"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_fuel",
+			"change": 200,
+			"operation": "add"
+		},
+		"return_stack": {
+			"item": "minecraft:bucket",
+			"amount": "1"
+		},
+		"use_action": "drink"
+	},
+	"water": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:water_bucket"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_water",
+			"change": 100,
+			"operation": "add"
+		},
+		"return_stack": {
+			"item": "minecraft:bucket",
+			"amount": "1"
+		},
+		"use_action": "drink"
+	},
+	"waterbottle": {
+		"type": "origins:action_on_item_use",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/cogwork/steampower_water",
+			"change": 50,
+			"operation": "add"
+		},
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:potion"
+			}
+		},
+		"trigger": "finish",
+		"priority": 0
+	}
+}

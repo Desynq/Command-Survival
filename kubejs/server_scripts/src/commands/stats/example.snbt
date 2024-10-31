@@ -1,0 +1,10 @@
+{
+	attribute_points: {
+		player_string_uuid: {
+			total_points: int,
+			stats: {
+				statId: int
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+  "name": "minecraft",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "scripts": {
+    "build": "kubejs build",
+    "watch": "kubejs build --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@kubejs/plugin": "^1.2.0"
+  }
+}

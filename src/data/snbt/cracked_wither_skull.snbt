@@ -1,0 +1,25 @@
+{
+	id: "minecraft:wither_skeleton_skull",
+	Count: 1b,
+	tag: {
+		display: {
+			Name: '["",{"text":"Cracked Wither Skull","italic":false}]'
+		},
+		AttributeModifiers: [
+			{
+				AttributeName: "forge:entity_reach",
+				Amount: 1,
+				Slot: "head",
+				UUID: [I; -124926, 22739, 44213, -45478],
+				Name: -939619562
+			},
+			{
+				AttributeName: "forge:block_reach",
+				Amount: 1,
+				Slot: "head",
+				UUID: [I; 1881130560, -1749587727, 615282704, -582986827],
+				Name: 2068987245
+			}
+		]
+	}
+}

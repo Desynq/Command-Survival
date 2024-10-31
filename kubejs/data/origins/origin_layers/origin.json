@@ -1,0 +1,17 @@
+{
+	"replace": true,
+	"order": 0,
+	"enabled": true,
+	"origins": [
+		"command_survival:human",
+		"command_survival:warped",
+		"command_survival:cogwork",
+		"command_survival:zephyr",
+		"command_survival:dryad"
+	],
+	"allow_random": true,
+	"exclude_random": [
+	],
+	"allow_random_unchoosable": false,
+	"hidden": false
+}

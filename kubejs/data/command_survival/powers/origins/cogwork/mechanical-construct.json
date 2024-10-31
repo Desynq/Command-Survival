@@ -1,0 +1,51 @@
+{
+	"name": "Mechanical Construct",
+	"description": "You have night vision at above 50% of your bars, and are immune to certain status effects",
+	"type": "origins:multiple",
+	"nightvis": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_fuel",
+					"comparison": ">=",
+					"compare_to": 200
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/cogwork/steampower_water",
+					"comparison": ">=",
+					"compare_to": 100
+				}
+			]
+		},
+		"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 600,
+		"tick_rate": 10,
+		"effect": {
+			"effect": "minecraft:night_vision",
+			"duration": 100,
+			"amplifier": 0,
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": false
+		}
+	},
+	"effectimmunity": {
+		"type": "origins:effect_immunity",
+		"effects": [
+			"minecraft:regeneration",
+			"minecraft:poison",
+			"alexscaves:irradiated",
+			"alexscaves:sugar_rush",
+			"alexsmobs:debilitating_sting",
+			"farmersdelight:comfort",
+			"farmersdelight:nourishment",
+			"minecraft:hunger",
+			"minecraft:saturation"
+		]
+	}
+}

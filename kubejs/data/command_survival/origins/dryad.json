@@ -1,0 +1,12 @@
+{
+	"name": "Dryad",
+	"description": "You're one with nature or some shit",
+	"powers": [
+		"command_survival:origins/dryad/earth-inventory"
+	],
+	"icon": {
+		"item": "twilightforest:steeleaf_ingot"
+	},
+	"order": 5,
+	"impact": 1
+}

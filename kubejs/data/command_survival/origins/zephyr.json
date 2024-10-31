@@ -1,0 +1,19 @@
+{
+	"name": "Zephyr",
+	"description": "Zephyrs are wind spirits that have managed to possess a living human and can puppeteer them around with precision while manipulating the wind around them.",
+	"icon": "weather2:weather_item",
+
+	"powers": [
+		"command_survival:origins/zephyr/bonusjump",
+		"command_survival:origins/zephyr/glide",
+		"command_survival:origins/zephyr/dash",
+		"command_survival:origins/zephyr/lesshp",
+		"command_survival:origins/zephyr/blast",
+		"command_survival:origins/zephyr/pull",
+		"command_survival:origins/zephyr/heavyrestrict",
+		"command_survival:origins/zephyr/windwall",
+		"command_survival:origins/zephyr/lightning-immunity"
+	],
+	"order": 4,
+	"impact": 2
+}
