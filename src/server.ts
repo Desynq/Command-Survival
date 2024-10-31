@@ -1,17 +1,17 @@
-class Person {
-	name: string;  // Property with a string type
-	age: number;   // Property with a number type
+import { AttributeModifierHelper } from "./libraries/AttributeModifierHelper";
+import * as AlexsMobsRecipes from "./server/recipes/AlexsMobs"
 
-	constructor(name: string, age: number) {
-		this.name = name;
-		this.age = age;
-	}
 
-	greet(): void {  // Method with a void return type
-		console.log(`Hello, my name is ${this.name}.`);
-	}
-}
 
-// Usage:
-const person = new Person("Alice", 25);
-person.greet(); // Output: Hello, my name is Alice.
+
+ServerEvents.recipes(event => {
+	AlexsMobsRecipes.register(event);
+});
+
+
+
+PlayerEvents.tick(event => {
+	const { server, player } = event;
+	const attribute = AttributeModifierHelper.getAttributeFromId(server, "minecraft:generic.max_health");
+	const maxHealth = player.attributes.getInstance(attribute).getValue();
+});
