@@ -1,4 +1,5 @@
-import { AttributeModifierHelper } from "./libraries/AttributeModifierHelper";
+import { AttributeHelper } from "./libraries/AttributeHelper";
+import { IOHelper } from "./libraries/IOHelper";
 import * as AlexsMobsRecipes from "./server/recipes/AlexsMobs"
 
 
@@ -12,6 +13,19 @@ ServerEvents.recipes(event => {
 
 PlayerEvents.tick(event => {
 	const { server, player } = event;
-	const attribute = AttributeModifierHelper.getAttributeFromId(server, "minecraft:generic.max_health");
+	if (player.username != "Desynq") {
+		return;
+	}
+
+	const attribute = AttributeHelper.getAttributeFromId(server, "minecraft:generic.max_health");
 	const maxHealth = player.attributes.getInstance(attribute).getValue();
+});
+
+
+
+EntityEvents.hurt(event => {
+	const entity = event.entity;
+	if (entity.invulnerable) {
+		event.cancel();
+	}
 });

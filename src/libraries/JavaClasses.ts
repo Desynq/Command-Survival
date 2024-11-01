@@ -10,3 +10,5 @@ export const $Registries = Java.loadClass("net.minecraft.core.registries.Registr
 export const $TagKey = Java.loadClass("net.minecraft.tags.TagKey");
 
 export const $ResourceKey = Java.loadClass("net.minecraft.resources.ResourceKey");
+
+export const $Player = Java.loadClass("net.minecraft.world.entity.player.Player");

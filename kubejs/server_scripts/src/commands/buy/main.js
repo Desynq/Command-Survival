@@ -29,6 +29,7 @@ BuyCommand.PricedItems = {
 
 	// advanced crafting materials
 	"minecraft:netherite_upgrade_smithing_template": 2000.00,
+	"tetra:dragon_sinew": 1000.00,
 
 	// custom
 	"unbreaking_3_book": 750.00,

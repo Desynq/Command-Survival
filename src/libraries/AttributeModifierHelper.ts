@@ -1,4 +1,4 @@
-import { $Attribute, $AttributeModifier, $Attributes, $Registries, $ResourceKey, $TagKey } from "./JavaClasses";
+import { $AttributeModifier, $Player } from "./JavaClasses";
 
 
 
@@ -39,12 +39,15 @@ export class AttributeModifierHelper {
 		return this;
 	}
 
+	public updateHealth() {
+		// players should only have their health updated right after respawning
+		if (this.entity instanceof $Player && this.entity.stats.timeSinceDeath !== 1) {
+			return;
+		}
 
-
-
-	public static getAttributeFromId(server: Internal.MinecraftServer, id: string): Internal.Attribute {
-		const resourceLocation = new ResourceLocation(id);
-		const resourceKey = $ResourceKey.create($Registries.ATTRIBUTE, resourceLocation);
-		return server.registryAccess().lookupOrThrow($Registries.ATTRIBUTE).getOrThrow(resourceKey).value() as unknown as Internal.Attribute;
+		const maxHealth = this.entity.attributes.getValue(this.attribute);
+		if (this.entity.health > maxHealth) {
+			this.entity.health = maxHealth;
+		}
 	}
 }

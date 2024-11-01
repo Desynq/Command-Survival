@@ -26,6 +26,7 @@ kubejs/*
 !kubejs/client_scripts/
 !kubejs/server_scripts/
 !kubejs/startup_scripts/
+!kubejs/json/
 
 kubejs/client_scripts/*
 !kubejs/client_scripts/src/

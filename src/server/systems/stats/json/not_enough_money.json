@@ -1,0 +1,16 @@
+[
+	{
+		"text": "Buying the next stat point costs ",
+		"color": "red"
+	},
+	{
+		"text": "${cost}",
+		"color": "yellow"
+	},
+	", you only have ",
+	{
+		"text": "${moneyString}",
+		"color": "yellow"
+	},
+	"."
+]
