@@ -7,7 +7,7 @@ def biased_random(min_val, max_val, bias):
 # Parameters
 min_val = 0  # Replace with the desired min value
 max_val = 0.5  # Replace with the desired max value
-bias = 50     # Replace with the desired bias value
+bias = 20     # Replace with the desired bias value
 
 # Run 1 million samples and compute the average
 num_runs = 10_000_000

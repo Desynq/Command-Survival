@@ -9,7 +9,7 @@ ServerEvents.tick(event => {
 	}
 	let percentageLost;
 	function everyDawn() {
-		percentageLost = biasedRandom(0.01, 0.5, 50)
+		percentageLost = biasedRandom(0, 0.5, 20)
 		SellTracker.diminishAll(server, percentageLost); // half lost every irl day
 		server.players !== null && server.players.toArray().forEach(player => broadcastDawn(player));
 	}

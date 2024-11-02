@@ -87,7 +87,6 @@ const EntityTick = (function () {
 	Class.prototype.tickItemEntity = function () {
 		/** @type {Internal.ItemEntity} */
 		this.entity;
-
 		if (this.entity.item.id == "minecraft:netherrack" && this.entity.age > 100) {
 			this.entity.remove("discarded");
 			return;

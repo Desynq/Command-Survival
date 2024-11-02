@@ -24,6 +24,24 @@
         "local/": true,
         "modernfix/": true,
         "debug/": true,
-        "server-resource-packs/": true
+        "server-resource-packs/": true,
+        "armourers_workshop/": true,
+        "resourcepacks/": true,
+        "saves/": true,
+        "schematics/": true,
+        "screenshots/": true,
+        "shaderpacks/": true,
+        "texturepacks/": true,
+        "mods/": true,
+        "node_modules/": true,
+        "config/": true,
+
+        "icon.png": true,
+        "options.txt": true,
+        "rhino.local.properties": true,
+        "servers.dat": true,
+        "servers.dat_old": true,
+        "usercache.json": true,
+        "usernamecache.json": true,
     }
 }
