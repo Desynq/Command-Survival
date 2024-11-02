@@ -1,10 +1,9 @@
 import { AttributeHelper } from "./libraries/AttributeHelper";
 import { EntityHelper } from "./libraries/EntityHelper";
 import { IOHelper } from "./libraries/IOHelper";
+import { $CompoundTag } from "./libraries/JavaClasses";
 import * as AlexsMobsRecipes from "./server/datagen/recipes/AlexsMobs"
 import { DimensionalDoorsRecipes } from "./server/datagen/recipes/DimensionalDoors";
-
-const desynq = Utils.server.players.toArray()?.find(player => player.username == "Desynq");
 
 
 
