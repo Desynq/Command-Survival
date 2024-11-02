@@ -1,12 +1,14 @@
 import { AttributeHelper } from "./libraries/AttributeHelper";
 import { IOHelper } from "./libraries/IOHelper";
-import * as AlexsMobsRecipes from "./server/recipes/AlexsMobs"
+import * as AlexsMobsRecipes from "./server/datagen/recipes/AlexsMobs"
+import { DimensionalDoorsRecipes } from "./server/datagen/recipes/DimensionalDoors";
 
 
 
 
 ServerEvents.recipes(event => {
 	AlexsMobsRecipes.register(event);
+	DimensionalDoorsRecipes.register(event);
 });
 
 
