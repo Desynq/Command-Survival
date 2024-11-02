@@ -1,0 +1,15 @@
+{
+	"materials": [
+		{
+			"item": {
+				"item": "minecraft:barrier"
+			},
+			"count": 1
+		}
+	],
+	"result": {
+		"type": "gun",
+		"id": "tacz:ak47",
+		"count": 1
+	}
+}

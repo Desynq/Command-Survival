@@ -1,0 +1,27 @@
+{
+	"materials": [
+		{
+			"item": {
+				"item": "minecraft:paper"
+			},
+			"count": 3
+		},
+		{
+			"item": {
+				"tag": "forge:gunpowder"
+			},
+			"count": 4
+		},
+		{
+			"item": {
+				"item": "minecraft:flint"
+			},
+			"count": 8
+		}
+	],
+	"result": {
+		"type": "ammo",
+		"id": "suffuse:boomstickshot",
+		"count": 10
+	}
+}

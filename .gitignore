@@ -36,3 +36,14 @@ kubejs/server_scripts/*
 
 kubejs/startup_scripts/*
 !kubejs/startup_scripts/src/
+
+
+
+!config/
+config/*
+
+!config/tacz/
+config/tacz/*
+!config/tacz/custom/
+config/tacz/custom/*
+!config/tacz/custom/_CommandSurvival

@@ -1,0 +1,33 @@
+{
+    "materials": [
+        {
+            "item": {
+                "tag": "forge:ingots/iron"
+            },
+            "count": 15
+        },
+        {
+            "item": {
+                "tag": "minecraft:logs"
+            },
+            "count": 10
+        },
+        {
+            "item": {
+                "tag": "forge:ingots/gold"
+            },
+            "count": 4
+        },
+        {
+            "item": {
+                "item": "minecraft:blaze_powder"
+            },
+            "count": 5
+        }
+    ],
+    "result": {
+        "type": "gun",
+        "id": "suffuse:trapper50cal",
+        "count": 1
+    }
+}
