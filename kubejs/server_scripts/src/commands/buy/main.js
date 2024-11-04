@@ -15,17 +15,21 @@ BuyCommand.PricedItems = {
 	"minecraft:amethyst": 5.00,
 	"minecraft:quartz": 0.50,
 
+	// misc minerals
+	"minecraft:coal": 2.00,
+
 	// raw ores
-	"minecraft:raw_iron": 8.00,
+	"minecraft:raw_iron": 10.00,
 	"minecraft:raw_copper": 1.00,
-	"minecraft:raw_gold": 10.00,
+	"minecraft:raw_gold": 15.00,
 	"create:raw_zinc": 4.00,
 
-	// raw materials
+	// mob drops
 	"minecraft:leather": 25.00,
 	"minecraft:ender_pearl": 100.00,
 	"minecraft:string": 1.00,
 	"minecraft:blaze_rod": 20.00,
+	"minecraft:slime_ball": 10.00,
 
 	// advanced crafting materials
 	"minecraft:netherite_upgrade_smithing_template": 2000.00,

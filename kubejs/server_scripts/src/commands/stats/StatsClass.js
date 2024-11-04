@@ -213,7 +213,6 @@ const CustomStats = (function () {
 	Class.prototype.applyGenericAttribute = function (player, statId, attribute, amountPerPoint, operation, index) {
 		const modifierUUID = CustomStatData[statId][`modifierUUID${index ? index : ""}`];
 		const modifierName = CustomStatData[statId][`modifierName${index ? index : ""}`];
-		player.tell(modifierUUID);
 
 		const points = this.getPointsFromStat(statId);
 		const newValue = amountPerPoint * points;

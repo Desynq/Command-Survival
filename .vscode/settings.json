@@ -43,5 +43,6 @@
         "servers.dat_old": true,
         "usercache.json": true,
         "usernamecache.json": true,
-    }
+    },
+    "typescript.tsdk": "node_modules\\typescript\\lib"
 }

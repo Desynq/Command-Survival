@@ -15,26 +15,41 @@ const SellableItems = {
 	"minecraft:deepslate": [Money.FromDollar(0.01)],
 
 	// gems
-	"minecraft:diamond": [Money.FromDollar(100.00), 0.2, 100],
+	"minecraft:diamond": [Money.FromDollar(100.00), 0.5, 300],
 	"minecraft:quartz": [Money.FromDollar(0.25), 0.2, 400],
 
+	// misc minerals
+	"minecraft:redstone": [Money.FromDollar(0.10), 0.5, 2000],
+	"minecraft:coal": [Money.FromDollar(1.00), 0.5, 500],
+
 	// ingots
-	"minecraft:iron_ingot": [Money.FromDollar(4.00), 0.2, 200],
+	"minecraft:iron_ingot": [Money.FromDollar(10.00), 0.5, 500],
 	"minecraft:gold_ingot": [Money.FromDollar(10.00)],
 	"minecraft:copper_ingot": [Money.FromDollar(0.50), 0.2, 400],
 	"create:zinc_ingot": [Money.FromDollar(2.00), 0.2, 200],
 	"minecraft:netherite_ingot": [Money.FromDollar(1000.0), 0.5, 100],
 
 	// farming
-	"minecraft:carrot": [Money.FromDollar(0.05), 0.2, 1000],
-	"minecraft:baked_potato": [Money.FromDollar(0.10), 0.2, 1500],
-	"minecraft:wheat": [Money.FromDollar(0.20), 0.2, 500],
+	"minecraft:carrot": [Money.FromDollar(0.20), 0.5, 5000],
+	"minecraft:baked_potato": [Money.FromDollar(0.50), 0.5, 10000],
+	"minecraft:wheat": [Money.FromDollar(0.75), 0.5, 2500],
+	"minecraft:honey_bottle": [Money.FromDollar(150.0), 0.5, 50],
+	"minecraft:honeycomb": [Money.FromDollar(50.0), 0.5, 100],
+	"minecraft:melon": [Money.FromDollar(0.10), 0.5, 2500],
+	"minecraft:pumpkin": [Money.FromDollar(1.00), 0.5, 1000],
+	"minecraft:cactus": [Money.FromDollar(0.25), 0.5, 5000],
+	"minecraft:nether_wart": [Money.FromDollar(1.00), 0.5, 500],
 
 	// farming (processed)
-	"minecraft:sugar": [Money.FromDollar(0.40), 0.2, 500],
+	"minecraft:sugar": [Money.FromDollar(1.00), 0.5, 2500],
 
 	// mob drops
-	"minecraft:tropical_fish": [Money.FromDollar(2.00), 0.25, 100],
+	"minecraft:tropical_fish": [Money.FromDollar(5.00), 0.5, 100],
+	"minecraft:slime_ball": [Money.FromDollar(1.00)],
+
+	// economy
+	"createdeco:gold_coin": [Money.FromDollar(2.00)],
+	"createdeco:gold_coinstack": [Money.FromDollar(10.00)],
 }
 
 

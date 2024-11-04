@@ -1,4 +1,4 @@
-import { EntityHelper } from "../../../libraries/EntityHelper";
+import { EntityHelper } from "../../entity/Helper";
 
 
 

@@ -28,25 +28,6 @@ function PlayerTick(event)
 		this.server.players.forEach(player => DesynqTickAPlayer(this.player, this.server, player))
 	}
 
-	if (this.player.level.dimension == "dimdoors:dungeon_pockets")
-	{
-		//this.player.addEffect("")
-	}
-
-	if (this.player.level.dimension == "dimdoors:limbo")
-	{
-		this.player.addEffect(new $MobEffectInstance("minecraft:darkness", 40, 0, false, false, true));
-	}
-
-	if (this.player.level.dimension == "minecraft:overworld" && this.player.y <= -128 && this.player.health <= 4) {
-		let clearedTotem = this.server.runCommandSilent(`clear ${this.player.username} minecraft:totem_of_undying 1`) == 1;
-		if (clearedTotem) {
-			let x, y = MathHelper.get2dPointInCircle(512);
-			this.player.teleportTo("command_survival:the_underground", 0, 320, 0, this.player.yaw, this.player.pitch);
-			this.player.addEffect(new $MobEffectInstance("minecraft:blindness", 200, 0, false, false, true));
-		}
-	}
-
 
 
 	if (this.player.stats.timeSinceDeath == 1)
