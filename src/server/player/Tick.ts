@@ -64,6 +64,7 @@ class UndergroundCheck {
 		player.addEffect(new $MobEffectInstance("minecraft:blindness", 200, 0, false, false, true));
 		player.addEffect(new $MobEffectInstance("minecraft:resistance", 200, 255, false, false, true));
 
-		heldItem.count -= 1;
+		// TODO: find another way of making entering the underground caves cost something each time while not being obscenely expensive every time
+		// heldItem.count -= 1;
 	}
 }
