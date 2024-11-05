@@ -1,5 +1,6 @@
 import { $MobEffectInstance } from "../../libraries/JavaClasses";
 import { MathHelper } from "../../libraries/MathHelper";
+import { AbyssalChasmTick } from "./tick/UndergroundDimensions";
 
 
 
@@ -21,6 +22,9 @@ class DimensionHandler {
 				break;
 			case "dimdoors:limbo":
 				this.limbo(player);
+				break;
+			case "command_survival:underground/abyssal_chasm":
+				AbyssalChasmTick.main(player);
 				break;
 		}
 	}
