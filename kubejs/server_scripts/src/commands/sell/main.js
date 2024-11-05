@@ -37,7 +37,7 @@ const SellableItems = {
 	"minecraft:honeycomb": [Money.FromDollar(50.0), 0.5, 100],
 	"minecraft:melon": [Money.FromDollar(0.10), 0.5, 2500],
 	"minecraft:pumpkin": [Money.FromDollar(1.00), 0.5, 1000],
-	"minecraft:cactus": [Money.FromDollar(0.25), 0.5, 5000],
+	"minecraft:cactus": [Money.FromDollar(0.50), 0.5, 5000],
 	"minecraft:nether_wart": [Money.FromDollar(1.00), 0.5, 500],
 
 	// farming (processed)
@@ -48,8 +48,8 @@ const SellableItems = {
 	"minecraft:slime_ball": [Money.FromDollar(1.00)],
 
 	// economy
-	"createdeco:gold_coin": [Money.FromDollar(2.00)],
-	"createdeco:gold_coinstack": [Money.FromDollar(10.00)],
+	"createdeco:gold_coin": [Money.FromDollar(1.20)],
+	"createdeco:gold_coinstack": [Money.FromDollar(5.00)],
 }
 
 
