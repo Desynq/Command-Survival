@@ -5,6 +5,7 @@ import { DimensionalDoorsRecipes } from "./server/datagen/recipes/DimensionalDoo
 import { PlayerTick } from "./server/player/Tick";
 import { OnServerLoad } from "./server/world/OnLoad";
 import { RecipesHandler } from "./server/datagen/recipes/_RecipesHandler";
+import { LootTableHandler } from "./server/datagen/loot_tables/_Handler";
 
 
 
@@ -65,3 +66,5 @@ ServerEvents.command(event => {
 		event.cancel();
 	}
 });
+
+LootJS.modifiers(event => LootTableHandler.register(event));
