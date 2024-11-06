@@ -9,20 +9,49 @@ export abstract class RecipesHandler {
 
 	protected abstract handleEvent(event: Internal.RecipesEventJS): void;
 
-	protected newShaped(item: Internal.ItemStack, pattern: string[], key: Record<string, string>): void {
+
+
+	protected newShapedOld(item: Internal.ItemStack, pattern: string[], key: Record<string, string>): void {
 		//@ts-ignore
 		this.event.shaped(item, pattern, key);
 	}
 
-	protected newShapeless(item: Internal.ItemStack, pattern: string[]): void {
+	protected newShapedRecipe(item: Internal.ItemStack, table: Special.Item[][]): void {
+		const [pattern, key] = RecipeHelper.convertTable(table);
+		//@ts-ignore
+		this.event.shaped(item, pattern, key);
+	}
+
+	protected newShapelessRecipe(item: Internal.ItemStack, pattern: string[]): void {
 		//@ts-ignore
 		this.event.shapeless(item, pattern);
 	}
+
+
 
 	public static register(event: Internal.RecipesEventJS): void {
 		this.handlers.forEach(handler => {
 			handler.handleEvent(event);
 		});
+	}
+}
+
+export class RecipeHelper {
+
+	public static convertTable(table: Special.Item[][]): [string[], Record<string, Special.Item>] {
+		const pattern: string[] = [];
+		const key: Record<string, Special.Item> = {};
+		let index = 0;
+		for (let row of table) {
+			let rowPattern: string = "";
+			for (let itemId of row) {
+				rowPattern += index.toString();
+				key[index.toString()] = itemId;
+				index++;
+			}
+			pattern.push(rowPattern);
+		}
+		return [pattern, key];
 	}
 }
 
@@ -81,7 +110,7 @@ class DyeRecipes extends RecipesHandler {
 		}
 		const ids = colors.map(color => `minecraft:${color}_dye`);
 
-		this.newShapeless(Item.of(`minecraft:${color}_dye`, amount), ids);
+		this.newShapelessRecipe(Item.of(`minecraft:${color}_dye`, amount), ids);
 		return this;
 	}
 }
@@ -99,7 +128,7 @@ class Cave {
 	public static readonly TOXIC_CAVES = new this("alexscaves:toxic_caves", "Toxic Caves");
 
 	public id: string;
-	public displayName: string
+	public displayName: string;
 
 	private constructor(id: string, displayName: string) {
 		this.id = id;
@@ -118,69 +147,64 @@ class AlexsCavesRecipes extends RecipesHandler {
 	protected handleEvent(event: Internal.RecipesEventJS): void {
 		this.event = event;
 
-		this.newCaveTabletRecipe(
-			Cave.MAGNETIC_CAVES,
-			[
-				"012",
-				"343",
-				"012"
-			],
-			{
-				"0": "minecraft:copper_ingot",
-				"1": "minecraft:iron_ingot",
-				"2": "minecraft:gold_ingot",
-				"3": "dimdoors:world_thread",
-				"4": "minecraft:lodestone"
-			}
-		)
-		.newCaveTabletRecipe(
-			Cave.TOXIC_CAVES,
-			[
-				"010",
-				"232",
-				"414"
-			],
-			{
-				"0": "minecraft:gunpowder",
-				"1": "minecraft:spider_eye",
-				"2": "dimdoors:world_thread",
-				"3": "minecraft:lodestone",
-				"4": "minecraft:slime_ball"
-			}
-		)
-		.newCaveTabletRecipe(
-			Cave.PRIMORDIAL_CAVES,
-			[
-				"010",
-				"232",
-				"414"
-			],
-			{
-				"0": "minecraft:bone",
-				"1": "minecraft:bone_block",
-				"2": "dimdoors:world_thread",
-				"3": "minecraft:lodestone",
-				"4": "alexsmobs:bone_serpent_tooth"
-			}
-		)
-		.newCaveTabletRecipe(
-			Cave.CANDY_CAVITY,
-			[
-				"010",
-				"232",
-				"010"
-			],
-			{
-				"0": "alexscaves:spelunkie",
-				"1": "minecraft:cake",
-				"2": "dimdoors:world_thread",
-				"3": "minecraft:lodestone"
-			}
-		);
+		this
+			.newCaveTabletRecipe(
+				Cave.MAGNETIC_CAVES,
+				[
+					["minecraft:black_dye", "minecraft:redstone", "minecraft:black_dye"],
+					["minecraft:copper_ingot", "minecraft:lodestone", "minecraft:iron_ingot"],
+					["minecraft:black_dye", "minecraft:gold_ingot", "minecraft:black_dye"]
+				]
+			)
+			.newCaveTabletRecipe(
+				Cave.PRIMORDIAL_CAVES,
+				[
+					["minecraft:yellow_dye", "minecraft:bone", "minecraft:yellow_dye"],
+					["minecraft:bone", "minecraft:lodestone", "minecraft:bone"],
+					["minecraft:yellow_dye", "minecraft:bone", "minecraft:yellow_dye"]
+				]
+			)
+			.newCaveTabletRecipe(
+				Cave.FORLORN_HOLLOWS,
+				[
+					["minecraft:brown_dye", "alexscaves:guano", "minecraft:brown_dye"],
+					["alexscaves:guano", "minecraft:lodestone", "alexscaves:guano"],
+					["minecraft:brown_dye", "alexscaves:guano", "minecraft:brown_dye"]
+				]
+			)
+			.newCaveTabletRecipe(
+				Cave.TOXIC_CAVES,
+				[
+					["minecraft:lime_dye", "alexscaves:cinder_brick", "minecraft:lime_dye"],
+					["alexscaves:cinder_brick", "minecraft:lodestone", "alexscaves:cinder_brick"],
+					["minecraft:lime_dye", "alexscaves:cinder_brick", "minecraft:lime_dye"]
+				]
+			)
+			.newCaveTabletRecipe(
+				Cave.ABYSSAL_CHASM,
+				[
+					["minecraft:blue_dye", "minecraft:prismarine_crystals", "minecraft:blue_dye"],
+					["minecraft:prismarine_crystals", "minecraft:lodestone", "minecraft:prismarine_crystals"],
+					["minecraft:blue_dye", "minecraft:prismarine_crystals", "minecraft:blue_dye"]
+				]
+			)
+			.newCaveTabletRecipe(
+				Cave.CANDY_CAVITY,
+				[
+					["minecraft:pink_dye", "minecraft:cake", "minecraft:pink_dye"],
+					["minecraft:cake", "minecraft:lodestone", "minecraft:cake"],
+					["minecraft:pink_dye", "minecraft:cake", "minecraft:pink_dye"]
+				]
+			);
 	}
 
-	private newCaveTabletRecipe(cave: Cave, pattern: string[], key: Record<string, string>): this {
-		this.newShaped(this.getCaveTabletItem(cave), pattern, key);
+	private newCaveTabletRecipeOld(cave: Cave, pattern: string[], key: Record<string, string>): this {
+		this.newShapedOld(this.getCaveTabletItem(cave), pattern, key);
+		return this;
+	}
+
+	private newCaveTabletRecipe(cave: Cave, table: Special.Item[][]): this {
+		this.newShapedRecipe(this.getCaveTabletItem(cave), table);
 		return this;
 	}
 
