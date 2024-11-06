@@ -4,7 +4,7 @@ import { ShapedRecipeTemplate } from "./Main";
 
 
 export abstract class RecipesHandler {
-	public static handlers: RecipesHandler[] = [];
+	protected static handlers: RecipesHandler[] = [];
 	protected event: Internal.RecipesEventJS | undefined;
 
 	protected abstract handleEvent(event: Internal.RecipesEventJS): void;
