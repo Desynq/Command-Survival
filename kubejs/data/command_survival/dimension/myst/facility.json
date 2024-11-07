@@ -1,0 +1,13 @@
+{
+	"type": "command_survival:facility",
+	"generator": {
+		"type": "minecraft:flat",
+		"settings": {
+			"biome": "command_survival:facility",
+			"lakes": false,
+			"features": false,
+			"layers": [],
+			"structure_overrides": []
+		}
+	}
+}
