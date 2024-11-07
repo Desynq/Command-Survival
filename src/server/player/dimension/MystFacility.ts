@@ -1,9 +1,9 @@
+import { $MobEffectInstance } from "../../../libraries/JavaClasses";
 
 
 
 export class MystFacility {
 
-	public static tick(player: Internal.Player) {
-		
+	public static tick(player: Internal.Player): void {
 	}
 }

@@ -1,9 +1,14 @@
 import { $MobEffectInstance } from "../../../libraries/JavaClasses";
+import { MystFacility } from "./MystFacility";
 import { AbyssalChasmTick } from "./UndergroundDimensions";
 
 export class DimensionHandler {
 
-	public static main(player: Internal.Player) {
+	public static main(player: Internal.Player): void {
+		this.whileInDimension(player);
+	}
+
+	private static whileInDimension(player: Internal.Player): void {
 		switch (player.level.dimension.toString()) {
 			case "minecraft:overworld":
 				this.overworld(player);
@@ -14,8 +19,13 @@ export class DimensionHandler {
 			case "command_survival:underground/abyssal_chasm":
 				AbyssalChasmTick.main(player);
 				break;
+			case "command_survival:myst/facility":
+				MystFacility.tick(player);
+				break;
 		}
 	}
+
+
 
 	private static overworld(player: Internal.Player) {
 		if (player.y <= -128) {
