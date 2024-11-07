@@ -1,5 +1,5 @@
-import { $MobEffectInstance } from "../../libraries/JavaClasses";
-import { AbyssalChasmTick } from "./tick/UndergroundDimensions";
+import { $MobEffectInstance } from "../../../libraries/JavaClasses";
+import { AbyssalChasmTick } from "./UndergroundDimensions";
 
 export class DimensionHandler {
 
@@ -27,6 +27,10 @@ export class DimensionHandler {
 		player.addEffect(new $MobEffectInstance("minecraft:darkness", 40, 0, false, false, true));
 	}
 }
+
+
+
+
 
 class UndergroundCheck {
 

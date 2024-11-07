@@ -1,5 +1,5 @@
 import { MathHelper } from "../../libraries/MathHelper";
-import { DimensionHandler } from "./DimensionHandler";
+import { DimensionHandler } from "./dimension/DimensionHandler";
 
 
 
