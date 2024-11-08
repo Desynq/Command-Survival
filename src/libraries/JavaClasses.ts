@@ -23,3 +23,5 @@ export const $Commands = Java.loadClass("net.minecraft.commands.Commands");
 export const $Arguments = Java.loadClass("dev.latvian.mods.kubejs.command.ArgumentTypeWrappers");
 
 export const $MobEffectInstance = Java.loadClass("net.minecraft.world.effect.MobEffectInstance");
+
+export const $BlockStateProperties = Java.loadClass("net.minecraft.world.level.block.state.properties.BlockStateProperties");

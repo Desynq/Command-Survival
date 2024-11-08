@@ -1,3 +1,4 @@
+import { Debug } from "../../../libraries/Debug";
 import { $MobEffectInstance } from "../../../libraries/JavaClasses";
 
 
