@@ -17,7 +17,8 @@
 
 
 # Additional Notes
-- After building you'll have to find `var e = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function()` and declare
-`var e;` preceding that block (blame Rhino making `var` function like `let` when it comes to block scoping)
+- Make sure to only build using `npm run build` as `npm run watch` will use `var` incorrectly and lead to scoping issues
 
 - Babel freaks out if you try to import a subclass into the same module as its parent class (avoid it at all costs).
+
+- Do not use `Utils.server` in the global scope or inside datapack-related events as these are loaded before the server instance is created
