@@ -305,8 +305,8 @@ const CustomStats = (function () {
 		const { server, player } = context.source;
 		const stats = new Class(server, player.uuid.toString());
 
-		const text = JsonIO.readString("kubejs/server_scripts/src/commands/stats/info.json");
-		server.runCommandSilent(`tellraw ${player.username} ${text}`);
+		const playerStatsCompound = stats.getPlayerCompound();
+		player.tell(playerStatsCompound.toString());
 		return 1;
 	}
 
