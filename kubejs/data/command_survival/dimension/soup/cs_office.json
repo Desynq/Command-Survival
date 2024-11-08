@@ -1,0 +1,18 @@
+{
+	"type": "command_survival:soup/cs_office",
+	"generator": {
+		"type": "minecraft:flat",
+		"settings": {
+			"biome": "minecraft:the_void",
+			"lakes": false,
+			"features": true,
+			"layers": [
+				{
+					"block": "minecraft:air",
+					"height": 1
+				}
+			],
+			"structure_overrides": []
+		}
+	}
+}

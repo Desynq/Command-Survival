@@ -1,5 +1,5 @@
 {
-	"type": "command_survival:facility",
+	"type": "command_survival:myst/facility",
 	"generator": {
 		"type": "minecraft:flat",
 		"settings": {

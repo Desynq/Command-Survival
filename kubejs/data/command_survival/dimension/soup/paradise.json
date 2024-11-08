@@ -1,0 +1,30 @@
+{
+	"type": "command_survival:soup/paradise",
+	"generator": {
+		"type": "minecraft:flat",
+		"settings": {
+			"biome": "command_survival:paradise_ocean",
+			"lakes": false,
+			"features": true,
+			"layers": [
+				{
+					"block": "minecraft:air",
+					"height": 168
+				},
+				{
+					"block": "minecraft:sandstone",
+					"height": 1
+				},
+				{
+					"block": "minecraft:sand",
+					"height": 5
+				},
+				{
+					"block": "minecraft:water",
+					"height": 10
+				}
+			],
+			"structure_overrides": []
+		}
+	}
+}
