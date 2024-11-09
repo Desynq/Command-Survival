@@ -10,3 +10,12 @@ export class PlayerTick {
 		DimensionHandler.main(player);
 	}
 }
+
+
+
+ItemEvents.canPickUp(event => {
+	const { player } = event;
+	if (player && player.creative && !player.crouching && !player.onGround()) {
+		event.cancel();
+	}
+})
