@@ -25,3 +25,12 @@ export const $Arguments = Java.loadClass("dev.latvian.mods.kubejs.command.Argume
 export const $MobEffectInstance = Java.loadClass("net.minecraft.world.effect.MobEffectInstance");
 
 export const $BlockStateProperties = Java.loadClass("net.minecraft.world.level.block.state.properties.BlockStateProperties");
+
+
+
+export const $IPowerContainer = Java.loadClass("io.github.edwinmindcraft.apoli.api.component.IPowerContainer");
+export const $IOriginContainer = Java.loadClass("io.github.edwinmindcraft.origins.api.capabilities.IOriginContainer");
+
+export const $OriginsAPI = Java.loadClass("io.github.edwinmindcraft.origins.api.OriginsAPI");
+
+export const $OriginLayer = Java.loadClass("io.github.edwinmindcraft.origins.api.origin.OriginLayer");
