@@ -1,0 +1,39 @@
+{
+	"type": "origins:multiple",
+
+	"entity-render": {
+		"type": "origins:prevent_entity_render",
+		"entity_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:living"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:global/resource/time-since-last-movement",
+					"comparison": ">",
+					"compare_to": 5
+				}
+			]
+		}
+	},
+
+	"entity-glow": {
+		"type": "origins:entity_glow",
+		"entity_condition": {
+			"type": "origins:living"
+		},
+		"bientity_condition": {
+			"type": "origins:distance",
+			"comparison": "<=",
+			"compare_to": 32
+		}
+	},
+
+	"shader": {
+		"type": "origins:shader",
+		"shader": "minecraft:shaders/post/sobel.json",
+		"toggleable": false
+	}
+}

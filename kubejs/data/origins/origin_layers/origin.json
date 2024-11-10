@@ -4,8 +4,8 @@
 	"enabled": true,
 	"origins": [
 		"command_survival:human",
-		"command_survival:warped",
 		"command_survival:cogwork",
+		"command_survival:sculk",
 		"command_survival:zephyr",
 		"command_survival:dryad"
 	],

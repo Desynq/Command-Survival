@@ -14,6 +14,8 @@ export class OnServerLoad {
 		Utils.server.allLevels.forEach(level => {
 			this.adjustWorldBorder(level);
 		});
+
+		Utils.server.runCommandSilent("scoreboard objectives add time_since_last_movement dummy");
 	}
 
 	private static adjustWorldBorder(level: Internal.ServerLevel) {

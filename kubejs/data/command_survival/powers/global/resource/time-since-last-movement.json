@@ -1,0 +1,5 @@
+{
+	"type": "origins:resource",
+	"min": 0,
+	"max": 2147483647
+}
