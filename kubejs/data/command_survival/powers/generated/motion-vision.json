@@ -17,7 +17,7 @@
 						{
 							"type": "origins:distance",
 							"comparison": ">",
-							"compare_to": 32
+							"compare_to": 64
 						},
 						{
 							"type": "origins:target_condition",
@@ -29,6 +29,38 @@
 							}
 						}
 					]
+				}
+			]
+		}
+	},
+	"entity-glow": {
+		"type": "origins:entity_glow",
+		"red": 0,
+		"green": 0,
+		"blue": 1,
+		"entity_condition": {
+			"type": "origins:living"
+		},
+		"bientity_condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:and",
+					"conditions": [
+						{
+							"type": "origins:can_see"
+						},
+						{
+							"type": "origins:distance",
+							"comparison": "<=",
+							"compare_to": 32
+						}
+					]
+				},
+				{
+					"type": "origins:distance",
+					"comparison": "<=",
+					"compare_to": 8
 				}
 			]
 		}

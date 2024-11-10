@@ -27,10 +27,20 @@ export namespace PowerType {
 		/**
 		 * If specified, only entities which fulfills this condition will be affected.
 		 */
-		entity_condition?: EntityCondition.Any;
+		entity_condition?: EntityCondition.Any
 		/**
 		 * If specified, the power will only be active if this condition is fulfilled by either or both the 'actor' (the player that has the power) and 'target' (the entity that will not render) entities.
 		 */
 		bientity_condition?: BiEntityCondition.Any
+	}
+
+	export interface IEntityGlow extends PowerType {
+		type: "origins:entity_glow"
+		entity_condition?: EntityCondition.Any
+		bientity_condition?: BiEntityCondition.Any
+		use_teams?: boolean
+		red?: number,
+		green?: number,
+		blue?: number
 	}
 }

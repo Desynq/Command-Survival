@@ -11,9 +11,7 @@ import { PowerType } from "./types/PowerType";
 
 namespace EntityRenderPower {
 
-	const IS_LIVING = BiEntityCondition.target(EntityCondition.living());
-
-	const IS_FAR_AWAY = BiEntityCondition.distance(">", 32);
+	const IS_FAR_AWAY = BiEntityCondition.distance(">", 64);
 
 	const resourceId = "command_survival:global/resource/time-since-last-movement";
 	const HASNT_MOVED_FOR_OVER_A_SECOND = BiEntityCondition.target(EntityCondition.resource(resourceId, ">", 20));
@@ -21,10 +19,21 @@ namespace EntityRenderPower {
 	export const INSTANCE: PowerType.IPreventEntityRender = {
 		"type": "origins:prevent_entity_render",
 		"bientity_condition": BiEntityCondition.and(
-			IS_LIVING,
+			BiEntityCondition.target(EntityCondition.living()),
 			BiEntityCondition.or(IS_FAR_AWAY, HASNT_MOVED_FOR_OVER_A_SECOND)
 		)
 	};
+}
+
+namespace EntityGlowPower {
+
+	const WITHIN_32_BLOCKS_OF_SIGHT = BiEntityCondition.and(BiEntityCondition.canSee(), BiEntityCondition.distance("<=", 32));
+
+	export const INSTANCE: PowerType.IEntityGlow = {
+		"type": "origins:entity_glow",
+		"entity_condition": EntityCondition.living(),
+		"bientity_condition": BiEntityCondition.or(WITHIN_32_BLOCKS_OF_SIGHT, BiEntityCondition.distance("<=", 8))
+	}
 }
 
 
@@ -37,19 +46,7 @@ export namespace MotionVisionPower {
 		type: "origins:multiple",
 
 		"entity-render": EntityRenderPower.INSTANCE,
-
-		// "entity-glow": {
-		// 	type: "origins:entity_glow",
-		// 	entity_condition: C.Entity.isLiving(),
-		// 	bientity_condition: {
-		// 		type: "origins:or",
-		// 		conditions: [
-		// 			C.BiEntity.distanceUnobstructed(32),
-		// 			// or
-		// 			C.BiEntity.within(8)
-		// 		]
-		// 	}
-		// },
+		"entity-glow": EntityGlowPower.INSTANCE,
 
 		"shader": {
 			type: "origins:shader",

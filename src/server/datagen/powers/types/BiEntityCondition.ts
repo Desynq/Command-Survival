@@ -1,5 +1,5 @@
 import { EntityCondition } from "./EntityCondition";
-import { ComparisonType, IComparison } from "./Meta";
+import { ComparisonType, FluidHandling, IComparison, ShapeType } from "./Meta";
 
 
 
@@ -34,6 +34,17 @@ export namespace BiEntityCondition {
 		};
 	}
 
+	export interface ICanSee extends Base {
+		type: "origins:can_see"
+		shape_type?: ShapeType
+		fluid_handling?: FluidHandling
+	}
+	export function canSee(): ICanSee {
+		return {
+			type: "origins:can_see"
+		}
+	}
+
 
 
 	export interface IOr extends Base {
@@ -66,5 +77,5 @@ export namespace BiEntityCondition {
 
 
 
-	export type Any = ITarget | IDistance | IOr | IAnd;
+	export type Any = ITarget | IDistance | ICanSee | IOr | IAnd;
 }
