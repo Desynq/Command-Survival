@@ -35,6 +35,12 @@
         "mods/": true,
         "node_modules/": true,
         "config/": true,
+        ".bobby": true,
+        "chiselsandbits": true,
+        "crash-reports": true,
+        "logs": true,
+        "patchouli_books": true,
+        "quests_structures": true,
 
         "icon.png": true,
         "options.txt": true,
@@ -43,6 +49,8 @@
         "servers.dat_old": true,
         "usercache.json": true,
         "usernamecache.json": true,
+        "fabricloader.log": true,
+        "patchouli_data.json": true
     },
     "typescript.tsdk": "node_modules\\typescript\\lib"
 }
