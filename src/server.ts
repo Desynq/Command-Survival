@@ -8,6 +8,7 @@ import { RecipesHandler } from "./server/datagen/recipes/_RecipesHandler";
 import { LootTableHandler } from "./server/datagen/loot_tables/_Handler";
 import { MystFacility } from "./server/world/dimension/MystFacility";
 import { Entity } from "./server/entity/Main";
+import { Powers } from "./server/datagen/powers/_main";
 
 
 
@@ -73,3 +74,4 @@ LootJS.modifiers(event => LootTableHandler.register(event));
 
 MystFacility;
 Entity;
+Powers;

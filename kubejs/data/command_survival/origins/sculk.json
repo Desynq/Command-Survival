@@ -3,7 +3,7 @@
 	"description": "",
 
 	"powers": [
-		"command_survival:origins/sculk/motion-vision"
+		"command_survival:generated/motion-vision"
 	],
 	"icon": {
 		"item": "deeperdarker:heart_of_the_deep"

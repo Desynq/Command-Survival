@@ -1,0 +1,56 @@
+{
+	"type": "origins:multiple",
+	"entity-render": {
+		"type": "origins:prevent_entity_render",
+		"bientity_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:target_condition",
+					"condition": {
+						"type": "origins:living"
+					}
+				},
+				{
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:distance",
+							"comparison": ">",
+							"compare_to": 32
+						},
+						{
+							"type": "origins:target_condition",
+							"condition": {
+								"type": "origins:resource",
+								"resource": "command_survival:global/resource/time-since-last-movement",
+								"comparison": ">",
+								"compare_to": 20
+							}
+						}
+					]
+				}
+			]
+		}
+	},
+	"shader": {
+		"type": "origins:shader",
+		"shader": "minecraft:shaders/post/sobel.json",
+		"toggleable": true
+	},
+	"night-vision": {
+		"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 600,
+		"tick_rate": 10,
+		"effect": {
+			"effect": "minecraft:night_vision",
+			"duration": 100,
+			"amplifier": 0,
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": false
+		}
+	}
+}
