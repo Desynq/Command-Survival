@@ -7,11 +7,9 @@ const AdminCommand = {};
 /**
  * @param {$CommandContext_<$CommandSourceStack_>} context 
  */
-AdminCommand.ItemsSoldChange = function (context)
-{
+AdminCommand.ItemsSoldChange = function (context) {
 	const executor = context.source.player;
-	if (!executor.op)
-	{
+	if (!executor.op) {
 		return;
 	}
 
@@ -25,12 +23,10 @@ AdminCommand.ItemsSoldChange = function (context)
 /**
  * @param {Internal.CommandContext<Internal.CommandSourceStack>} context 
  */
-AdminCommand.AddMoneyToPlayer = function (context)
-{
+AdminCommand.AddMoneyToPlayer = function (context) {
 	const server = context.source.server;
 	const executor = context.source.player;
-	if (!executor.op)
-	{
+	if (!executor.op) {
 		return;
 	}
 
@@ -48,11 +44,9 @@ AdminCommand.AddMoneyToPlayer = function (context)
 /**
  * @param {$CommandContext_<$CommandSourceStack_>} context
  */
-AdminCommand.GetMoneyFromPlayer = function (context)
-{
+AdminCommand.GetMoneyFromPlayer = function (context) {
 	const executor = context.source.player;
-	if (!executor.op)
-	{
+	if (!executor.op) {
 		return;
 	}
 	const server = context.source.server;
@@ -69,33 +63,27 @@ AdminCommand.GetMoneyFromPlayer = function (context)
  * 
  * @param {Internal.CommandContext<Internal.CommandSourceStack>} context
  */
-AdminCommand.Reload = function (context)
-{
+AdminCommand.Reload = function (context) {
 	const server = context.source.server;
 
 	server.players.tell("Reloading in 5 seconds");
 
-	server.scheduleInTicks(20, callback =>
-	{
+	server.scheduleInTicks(20, callback => {
 		server.players.tell("Reloading in 4 seconds");
 	});
-	server.scheduleInTicks(40, callback =>
-	{
+	server.scheduleInTicks(40, callback => {
 		server.players.tell("Reloading in 3 seconds");
 	});
 
-	server.scheduleInTicks(60, callback =>
-	{
+	server.scheduleInTicks(60, callback => {
 		server.players.tell("Reloading in 2 seconds");
 	});
 
-	server.scheduleInTicks(80, callback =>
-	{
+	server.scheduleInTicks(80, callback => {
 		server.players.tell("Reloading in 1 second");
 	});
 
-	server.scheduleInTicks(100, callback =>
-	{
+	server.scheduleInTicks(100, callback => {
 		server.players.tell("Reloading...");
 		server.runCommandSilent("reload");
 	});
@@ -105,23 +93,20 @@ AdminCommand.Reload = function (context)
  * 
  * @param {Internal.CommandContext<Internal.CommandSourceStack>} context
  */
-AdminCommand.ReloadFast = function (context)
-{
+AdminCommand.ReloadFast = function (context) {
 	const server = context.source.server;
 	server.players.tell(Text.darkRed("Expect frequent reloads!"));
 	server.players.tell("Reloading in 3 seconds");
 
-	server.scheduleInTicks(20, callback =>
-	{
+	server.scheduleInTicks(0, () => { });
+	server.scheduleInTicks(20, callback => {
 		server.players.tell("Reloading in 2 seconds");
 	});
-	server.scheduleInTicks(40, callback =>
-	{
+	server.scheduleInTicks(40, callback => {
 		server.players.tell("Reloading in 1 second");
 	});
 
-	server.scheduleInTicks(60, callback =>
-	{
+	server.scheduleInTicks(60, callback => {
 		server.players.tell("Reloading...");
 		server.runCommandSilent("reload");
 	});
@@ -134,8 +119,7 @@ AdminCommand.ReloadFast = function (context)
  * 
  * @param {Internal.CommandContext<Internal.CommandSourceStack>} context 
  */
-AdminCommand.AddPlayer = function (context)
-{
+AdminCommand.AddPlayer = function (context) {
 	const server = context.source.server;
 	const username = $Arguments.STRING.getResult(context, "username");
 	const stringUUID = $Arguments.STRING.getResult(context, "string_uuid");
@@ -151,8 +135,7 @@ AdminCommand.spyPlayerStats = function (context) {
 
 
 
-ServerEvents.commandRegistry(event =>
-{
+ServerEvents.commandRegistry(event => {
 	event.register($Commands.literal("admin")
 		.requires(executor => executor.hasPermission(4))
 		/**
@@ -165,8 +148,7 @@ ServerEvents.commandRegistry(event =>
 				.then($Commands.argument("item", $Arguments.STRING.create(event))
 					.suggests((context, builder) => suggestSellableItem(context, builder))
 					.then($Commands.argument("new_amount", $Arguments.INTEGER.create(event))
-						.executes(context =>
-						{
+						.executes(context => {
 							AdminCommand.ItemsSoldChange(context);
 							return 1;
 						})
@@ -184,8 +166,7 @@ ServerEvents.commandRegistry(event =>
 			.then($Commands.literal("add")
 				.then($Commands.argument("username", $Arguments.STRING.create(event))
 					.then($Commands.argument("amount", $Arguments.DOUBLE.create(event))
-						.executes(context =>
-						{
+						.executes(context => {
 							AdminCommand.AddMoneyToPlayer(context);
 							return 1;
 						})
@@ -194,8 +175,7 @@ ServerEvents.commandRegistry(event =>
 			)
 			.then($Commands.literal("get")
 				.then($Commands.argument("username", $Arguments.STRING.create(event))
-					.executes(context =>
-					{
+					.executes(context => {
 						AdminCommand.GetMoneyFromPlayer(context);
 						return 1;
 					})
@@ -212,8 +192,7 @@ ServerEvents.commandRegistry(event =>
 		)
 
 		.then($Commands.literal("reload")
-			.executes(context =>
-			{
+			.executes(context => {
 				AdminCommand.Reload(context);
 				return 1;
 			})
@@ -225,8 +204,7 @@ ServerEvents.commandRegistry(event =>
 		.then($Commands.literal("add_player")
 			.then($Commands.argument("username", $Arguments.STRING.create(event))
 				.then($Commands.argument("string_uuid", $Arguments.STRING.create(event))
-					.executes(context =>
-					{
+					.executes(context => {
 						AdminCommand.AddPlayer(context);
 						return 1;
 					})
