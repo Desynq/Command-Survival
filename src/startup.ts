@@ -4,3 +4,16 @@ BlockEvents.modification(event => {
 		block.explosionResistance = 3600000;
 	});
 });
+
+
+
+StartupEvents.registry("minecraft:mob_effect", event => {
+
+	event.create("pinged")
+		.color(Color.DARK_AQUA)
+		.harmful()
+		.effectTick((entity, effectLvl) => {
+			// global.PingedMobEffect.tick()
+		})
+		.displayName(Component.darkAqua("Pinged") as any)
+});

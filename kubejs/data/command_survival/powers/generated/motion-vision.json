@@ -35,9 +35,6 @@
 	},
 	"entity-glow": {
 		"type": "origins:entity_glow",
-		"red": 0,
-		"green": 0,
-		"blue": 1,
 		"entity_condition": {
 			"type": "origins:living"
 		},

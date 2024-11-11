@@ -17,6 +17,7 @@ export const $Tag = Java.loadClass("net.minecraft.nbt.Tag");
 export const $CompoundTag = Java.loadClass("net.minecraft.nbt.CompoundTag");
 export const $StringTag = Java.loadClass('net.minecraft.nbt.StringTag');
 export const $ListTag = Java.loadClass("net.minecraft.nbt.ListTag");
+export const $DoubleTag = Java.loadClass("net.minecraft.nbt.DoubleTag");
 
 export const $Commands = Java.loadClass("net.minecraft.commands.Commands");
 

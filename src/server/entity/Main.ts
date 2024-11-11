@@ -1,4 +1,5 @@
-import { $ListTag, $Tag } from "../../libraries/JavaClasses";
+import { Debug } from "../../libraries/Debug";
+import { $DoubleTag, $ListTag, $Tag } from "../../libraries/JavaClasses";
 import { OriginsHelper } from "../../libraries/OriginsHelper";
 
 
@@ -6,57 +7,63 @@ import { OriginsHelper } from "../../libraries/OriginsHelper";
 
 export namespace Entity {
 
-	function getCommandName(entity: Internal.Entity): string {
-		return entity.type === "minecraft:player" ? entity.username : entity.uuid.toString();
-	}
-
-	export function tick(entity: Internal.Entity): void {
+	export function tick(entity: Internal.Entity) {
 		if (entity.living) {
-			Living.tick(entity as any);
+			LivingEntity.tick(entity as any);
 		}
 	}
+}
 
+export namespace LivingEntity {
 
+	const RESOURCE_ID = "command_survival:global/resource/time-since-last-movement";
+	let entity: Internal.LivingEntity;
+	let commandName: string;
+	let timeSinceLastMovement: number;
 
-	namespace Living {
-		export function tick(entity: Internal.LivingEntity): void {
-			const resourceId = "command_survival:global/resource/time-since-last-movement";
-			const username = getCommandName(entity as any);
+	export function tick(newEntity: Internal.LivingEntity) {
+		entity = newEntity;
 
-			if (!OriginsHelper.entity(entity as any).hasPower(resourceId)) {
-				Utils.server.runCommandSilent(`power grant ${username} ${resourceId}`);
-			}
+		commandName = entity.type === "minecraft:player" ? entity.username : entity.uuid.toString();
 
-			let timeSinceLastMovement = Utils.server.runCommandSilent(`resource get ${username} ${resourceId}`);
-
-			if (hasMoved(entity)) {
-				timeSinceLastMovement = 0;
-				updateMovementData(entity);
-			}
-			else {
-				timeSinceLastMovement++;
-			}
-			Utils.server.runCommandSilent(`resource set ${username} ${resourceId} ${timeSinceLastMovement}`);
-		}
-		
-		export function hasMoved(entity: Internal.LivingEntity): boolean {
-			if (entity.persistentData.getDouble("pos_x") !== entity.x) return true;
-			if (entity.persistentData.getDouble("pos_y") !== entity.y) return true;
-			if (entity.persistentData.getDouble("pos_z") !== entity.z) return true;
-			if (entity.persistentData.getDouble("yaw") !== entity.yaw) return true;
-			if (entity.persistentData.getDouble("pitch") !== entity.pitch) return true;
-
-			return false;
+		if (!OriginsHelper.entity(entity as any).hasPower(RESOURCE_ID)) {
+			Utils.server.runCommandSilent(`power grant ${commandName} ${RESOURCE_ID}`);
 		}
 
-		export function updateMovementData(entity: Internal.LivingEntity): void {
-			entity.persistentData.putDouble("pos_x", entity.x);
-			entity.persistentData.putDouble("pos_y", entity.y);
-			entity.persistentData.putDouble("pos_z", entity.z);
-			entity.persistentData.putDouble("yaw", entity.yaw);
-			entity.persistentData.putDouble("pitch", entity.pitch);
+		timeSinceLastMovement = Utils.server.runCommandSilent(`resource get ${commandName} ${RESOURCE_ID}`);
+
+		if (hasMoved()) {
+			timeSinceLastMovement = 0;
+			updateMovementData();
+		} else {
+			timeSinceLastMovement++;
 		}
+
+		Utils.server.runCommandSilent(`resource set ${commandName} ${RESOURCE_ID} ${timeSinceLastMovement}`);
 	}
+
+	let pos_and_rot: Internal.ListTag;
+
+	function hasMoved(): boolean {
+		pos_and_rot = entity.persistentData.getList("posrot", $Tag.TAG_DOUBLE);
+		return (
+			pos_and_rot.getDouble(0) !== entity.x ||
+			pos_and_rot.getDouble(1) !== entity.y ||
+			pos_and_rot.getDouble(2) !== entity.z ||
+			pos_and_rot.getDouble(3) !== entity.yaw ||
+			pos_and_rot.getDouble(4) !== entity.pitch
+		);
+	}
+
+	function updateMovementData(): void {
+		pos_and_rot = new $ListTag();
+		pos_and_rot.add(0, entity.x);
+		pos_and_rot.add(1, entity.y);
+		pos_and_rot.add(2, entity.z);
+		pos_and_rot.add(3, $DoubleTag.valueOf(entity.yaw));
+		pos_and_rot.add(4, $DoubleTag.valueOf(entity.pitch));
+		entity.persistentData.put("posrot", pos_and_rot as any);
+	};
 }
 
 
