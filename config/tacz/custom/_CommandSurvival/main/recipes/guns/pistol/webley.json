@@ -1,0 +1,33 @@
+{
+  "materials": [
+    {
+      "item": {
+        "tag": "minecraft:logs"
+      },
+      "count": 4
+    },
+    {
+      "item": {
+        "item": "create:brass_sheet"
+      },
+      "count": 10
+    },
+    {
+      "item": {
+        "item": "createdeco:industrial_iron_ingot"
+      },
+      "count": 32
+    },
+    {
+      "item": {
+        "item": "minecraft:blaze_powder"
+      },
+      "count": 6
+    }
+  ],
+  "result": {
+    "type": "gun",
+    "id": "hamster:webley",
+    "count": 1
+  }
+}

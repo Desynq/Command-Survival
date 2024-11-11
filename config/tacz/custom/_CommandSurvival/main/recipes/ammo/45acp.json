@@ -2,26 +2,32 @@
 	"materials": [
 		{
 			"item": {
-				"item": "minecraft:iron_nugget"
+				"item": "minecraft:iron_ingot"
 			},
-			"count": 30
+			"count": 4
 		},
 		{
 			"item": {
 				"tag": "forge:gunpowder"
 			},
-			"count": 2
+			"count": 4
+		},
+		{
+			"item": {
+				"item": "create:brass_sheet"
+			},
+			"count": 6
 		},
 		{
 			"item": {
 				"item": "create:copper_sheet"
 			},
-			"count": 5
+			"count": 3
 		}
 	],
 	"result": {
 		"type": "ammo",
 		"id": "tacz:45acp",
-		"count": 30
+		"count": 20
 	}
 }

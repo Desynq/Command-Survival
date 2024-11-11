@@ -2,38 +2,38 @@
 	"materials": [
 		{
 			"item": {
-				"item": "minecraft:iron_nugget"
+				"item": "minecraft:iron_ingot"
 			},
-			"count": 16
+			"count": 10
 		},
 		{
 			"item": {
 				"tag": "forge:gunpowder"
 			},
-			"count": 2
+			"count": 6
 		},
 		{
 			"item": {
 				"tag": "forge:paper"
 			},
-			"count": 2
+			"count": 6
 		},
 		{
 			"item": {
 				"item": "create:brass_sheet"
 			},
-			"count": 1
+			"count": 8
 		},
 		{
 			"item": {
 				"tag": "forge:dyes/red"
 			},
-			"count": 1
+			"count": 2
 		}
 	],
 	"result": {
 		"type": "ammo",
 		"id": "tacz:12g",
-		"count": 2
+		"count": 12
 	}
 }

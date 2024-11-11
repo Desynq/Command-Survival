@@ -1,0 +1,38 @@
+{
+  "materials": [
+    {
+      "item": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 10
+    },
+    {
+      "item": {
+        "item": "art_of_forging:forged_steel_ingot"
+      },
+      "count": 1
+    },
+    {
+      "item": {
+        "tag": "forge:gunpowder"
+      },
+      "count": 10
+    },
+    {
+      "item": {
+        "item": "create:brass_sheet"
+      },
+      "count": 10
+    },
+    {
+      "item": {
+        "item": "create:copper_sheet"
+      },
+      "count": 6
+  ],
+  "result": {
+    "type": "ammo",
+    "id": "tacz:762x54",
+    "count": 20
+  }
+}

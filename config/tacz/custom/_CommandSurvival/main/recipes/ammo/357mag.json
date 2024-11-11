@@ -1,0 +1,33 @@
+{
+  "materials": [
+    {
+      "item": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 3
+    },
+    {
+      "item": {
+        "tag": "forge:gunpowder"
+      },
+      "count": 3
+    },
+    {
+      "item": {
+        "item": "create:brass_sheet"
+      },
+      "count": 4
+    },
+    {
+      "item": {
+        "item": "create:copper_sheet"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "type": "ammo",
+    "id": "tacz:357mag",
+    "count": 12
+  }
+}

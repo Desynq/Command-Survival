@@ -14,9 +14,9 @@
 		},
 		{
 			"item": {
-				"item": "minecraft:flint"
+				"item": "minecraft:iron_ingot"
 			},
-			"count": 8
+			"count": 5
 		}
 	],
 	"result": {

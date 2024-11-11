@@ -1,0 +1,45 @@
+{
+  "materials": [
+    {
+      "item": {
+        "tag": "forge:ingots/iron"
+      },
+      "count": 30
+    },
+    {
+      "item": {
+        "tag": "minecraft:logs"
+      },
+      "count": 18
+    },
+    {
+      "item": {
+        "item": "create:golden_sheet"
+      },
+      "count": 18
+    },
+    {
+      "item": {
+        "item": "minecraft:flint"
+      },
+      "count": 3
+    },
+    {
+      "item": {
+        "item": "minecraft:diamond"
+      },
+      "count": 2
+    },
+    {
+    "item": {
+      "item": "minecraft:leather"
+    },
+    "count": 3
+    }
+  ],
+  "result": {
+    "type": "gun",
+    "id": "qkl:fk15",
+    "count": 1
+  }
+}

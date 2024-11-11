@@ -4,7 +4,7 @@
 	"bullet": {
 		"life": 0.3,
 		"bullet_amount": 8,
-		"damage": 8,
+		"damage": 19,
 		"tracer_count_interval": 0,
 		"extra_damage": {
 			"armor_ignore": 0,
@@ -12,15 +12,27 @@
 			"damage_adjust": [
 				{
 					"distance": 5,
-					"damage": 7
+					"damage": 19
 				},
 				{
-					"distance": 9,
-					"damage": 5
+					"distance": 10,
+					"damage": 18
+				},
+				{
+					"distance": 13,
+					"damage": 17
+				},
+				{
+					"distance": 16,
+					"damage": 16
+				},
+				{
+					"distance": 20,
+					"damage": 15
 				},
 				{
 					"distance": "infinite",
-					"damage": 3
+					"damage": 14
 				}
 			]
 		},
@@ -46,9 +58,9 @@
 	},
 	"draw_time": 0.5,
 	"put_away_time": 1.0,
-	"aim_time": 0.9,
+	"aim_time": 0.4,
 	"sprint_time": 0.2,
-	"weight": 15.0,
+	"weight": 7.5,
 	"movement_speed": {
 		"base": 0.0,
 		"aim": 0,
@@ -84,36 +96,36 @@
 			{
 				"time": 0,
 				"value": [
-					3.5,
-					3.5
+					12,
+					12
 				]
 			},
 			{
 				"time": 0.3,
 				"value": [
-					3.5,
-					3.5
+					12,
+					12
 				]
 			},
 			{
 				"time": 0.5,
 				"value": [
-					-1.15,
-					-1.15
+					10,
+					10
 				]
 			},
 			{
 				"time": 0.65,
 				"value": [
-					0,
-					0
+					8,
+					8
 				]
 			},
 			{
 				"time": 0.7,
 				"value": [
-					0,
-					0
+					6,
+					6
 				]
 			}
 		],
@@ -121,15 +133,15 @@
 			{
 				"time": 0,
 				"value": [
-					-1.5,
-					-1.5
+					-6,
+					6
 				]
 			},
 			{
 				"time": 0.3,
 				"value": [
-					-1.5,
-					-1.5
+					-6,
+					6
 				]
 			},
 			{
@@ -149,11 +161,11 @@
 		]
 	},
 	"inaccuracy": {
-		"stand": 8,
-		"move": 8,
-		"sneak": 7,
-		"lie": 6,
-		"aim": 5
+		"stand": 10,
+		"move": 10,
+		"sneak": 10,
+		"lie": 10,
+		"aim": 10
 	},
 	"melee": {
 		"distance": 1,
