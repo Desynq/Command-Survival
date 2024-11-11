@@ -1,0 +1,33 @@
+{
+  "materials": [
+    {
+      "item": {
+        "tag": "minecraft:logs"
+      },
+      "count": 8
+    },
+    {
+      "item": {
+        "item": "create:brass_sheet"
+      },
+      "count": 18
+    },
+    {
+      "item": {
+        "item": "createdeco:industrial_iron_ingot"
+      },
+      "count": 12
+    },
+    {
+      "item": {
+        "item": "minecraft:blaze_powder"
+      },
+      "count": 8
+    }
+  ],
+  "result": {
+    "type": "gun",
+    "id": "create_armorer:shotgun_db_stone",
+    "count": 1
+  }
+}

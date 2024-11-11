@@ -1,0 +1,33 @@
+{
+  "materials": [
+    {
+      "item": {
+        "tag": "minecraft:logs"
+      },
+      "count": 32
+    },
+    {
+      "item": {
+        "item": "create:brass_sheet"
+      },
+      "count": 24
+    },
+    {
+      "item": {
+        "item": "createdeco:industrial_iron_ingot"
+      },
+      "count": 26
+    },
+    {
+      "item": {
+        "item": "minecraft:blaze_powder"
+      },
+      "count": 12
+    }
+  ],
+  "result": {
+    "type": "gun",
+    "id": "hamster:sharps",
+    "count": 1
+  }
+}

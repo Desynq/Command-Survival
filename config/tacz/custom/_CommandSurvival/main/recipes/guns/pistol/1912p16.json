@@ -1,0 +1,39 @@
+{
+  "materials": [
+    {
+      "item": {
+        "tag": "minecraft:logs"
+      },
+      "count": 18
+    },
+    {
+      "item": {
+        "item": "create:brass_sheet"
+      },
+      "count": 12
+    },
+    {
+      "item": {
+        "item": "oreganized:electrum_ingot"
+      },
+      "count": 18
+    },
+    {
+      "item": {
+        "item": "art_of_forging:forged_steel_ingot"
+      },
+      "count": 4
+    },
+    {
+      "item": {
+        "item": "minecraft:blaze_powder"
+      },
+      "count": 18
+    }
+  ],
+  "result": {
+    "type": "gun",
+    "id": "qkl:1912p16",
+    "count": 1
+  }
+}

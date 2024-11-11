@@ -1,0 +1,33 @@
+{
+  "materials": [
+    {
+      "item": {
+        "tag": "minecraft:logs"
+      },
+      "count": 24
+    },
+    {
+      "item": {
+        "item": "create:brass_sheet"
+      },
+      "count": 16
+    },
+    {
+      "item": {
+        "item": "createdeco:industrial_iron_ingot"
+      },
+      "count": 32
+    },
+    {
+      "item": {
+        "item": "minecraft:blaze_powder"
+      },
+      "count": 10
+    }
+  ],
+  "result": {
+    "type": "gun",
+    "id": "qkl:1871",
+    "count": 1
+  }
+}

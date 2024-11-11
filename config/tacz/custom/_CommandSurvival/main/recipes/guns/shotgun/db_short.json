@@ -2,27 +2,27 @@
 	"materials": [
 		{
 			"item": {
-				"tag": "forge:ingots/iron"
+				"tag": "minecraft:logs"
 			},
-			"count": 24
+			"count": 12
 		},
 		{
 			"item": {
-				"tag": "minecraft:logs"
+				"item": "create:brass_sheet"
 			},
 			"count": 10
+		},
+		{
+			"item": {
+				"item": "createdeco:industrial_iron_ingot"
+			},
+			"count": 16
 		},
 		{
 			"item": {
 				"item": "minecraft:blaze_powder"
 			},
 			"count": 6
-		},
-		{
-			"item": {
-				"item": "minecraft:diamond"
-			},
-			"count": 1
 		}
 	],
 	"result": {
