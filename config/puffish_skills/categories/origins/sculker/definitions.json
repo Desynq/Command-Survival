@@ -1,0 +1,46 @@
+{
+	"root_reach": {
+		"title": "Sculk",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:dandelion"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "forge:reach_distance",
+					"value": 1,
+					"operation": "addition"
+				}
+			},
+			{
+				"type": "puffish_skills:command",
+				"data": {
+					"command": "say Congradulations on your first level!"
+				}
+			}
+		]
+	},
+	"reach": {
+		"title": "+0.5 Reach",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:stick"
+			}
+		},
+		"rewards": [
+			{
+				"type": "puffish_skills:attribute",
+				"data": {
+					"attribute": "forge:reach_distance",
+					"value": 0.5,
+					"operation": "addition"
+				}
+			}
+		]
+	}
+}

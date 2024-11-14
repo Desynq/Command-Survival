@@ -1,0 +1,18 @@
+{
+	"display": {
+		"icon": {
+			"item": "minecraft:lodestone"
+		},
+		"title": "Milestones",
+		"description": "Your journey begins...",
+		"background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+		"announce_to_chat": false,
+		"frame": "task",
+		"show_toast": true
+	},
+	"criteria": {
+		"": {
+			"trigger": "minecraft:tick"
+		}
+	}
+}

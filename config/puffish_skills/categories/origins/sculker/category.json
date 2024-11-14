@@ -1,0 +1,12 @@
+{
+	"unlocked_by_default": false,
+	"exclusive_root": true,
+	"title": "Origin: Sculk",
+	"icon": {
+		"type": "item",
+		"data": {
+			"item": "deeperdarker:heart_of_the_deep"
+		}
+	},
+	"background": "textures/gui/advancements/backgrounds/stone.png"
+}

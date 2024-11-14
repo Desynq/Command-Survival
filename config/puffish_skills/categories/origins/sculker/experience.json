@@ -1,0 +1,11 @@
+{
+	"experience_per_level": {
+		"type": "values",
+		"data": {
+			"values": [
+				1
+			]
+		}
+	},
+	"sources": []
+}

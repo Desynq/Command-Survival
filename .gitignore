@@ -47,3 +47,5 @@ config/tacz/*
 !config/tacz/custom/
 config/tacz/custom/*
 !config/tacz/custom/_CommandSurvival
+
+!config/puffish_skills
