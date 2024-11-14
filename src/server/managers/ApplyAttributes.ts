@@ -8,13 +8,13 @@ export class ApplyAttributesManager {
 		const origin = OriginsHelper.entity(player as any).getOriginId();
 		switch (origin) {
 			case "command_survival:sculker":
-				this.applySculkAttributes();
+				this.applySculkerAttributes();
 				break;
 		}
 	}
 
 
-	private applySculkAttributes(): void {
+	private applySculkerAttributes(): void {
 		const resourceId = "command_survival:origins/sculker/absorb_level"
 		const absorbLevel = Utils.server.runCommandSilent(`resource get ${this.player.username} ${resourceId}`);
 
