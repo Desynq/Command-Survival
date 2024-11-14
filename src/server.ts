@@ -15,6 +15,8 @@ import "./server/entity/Main";
 
 import "./server/world/dimension/MystFacility";
 
+import "./server/commands/Update";
+
 
 
 ServerEvents.recipes(event => {

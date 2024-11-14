@@ -1,0 +1,1 @@
+type Player = Internal.Player & Internal.ServerPlayer & Internal.LivingEntity & Internal.Entity;

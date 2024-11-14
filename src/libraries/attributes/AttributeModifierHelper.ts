@@ -1,4 +1,5 @@
-import { $AttributeModifier, $Player } from "./JavaClasses";
+import { AttributeHelper } from "./AttributeHelper";
+import { $AttributeModifier, $Player } from "../JavaClasses";
 
 
 
@@ -9,9 +10,11 @@ export class AttributeModifierHelper {
 	private modifierUUID: Internal.UUID;
 	private modifierName: string;
 
-	public constructor(entity: Internal.LivingEntity, attribute: Internal.Attribute, modifierUUID: Internal.UUID, modifierName: string) {
+	public constructor(entity: Internal.LivingEntity, attribute: Internal.Attribute | string, modifierUUID: Internal.UUID, modifierName: string) {
 		this.entity = entity;
-		this.attribute = attribute;
+
+		this.attribute = typeof attribute === "string" ? AttributeHelper.getAttribute(attribute) : attribute
+
 		this.modifierUUID = modifierUUID;
 		this.modifierName = modifierName;
 	}
@@ -37,17 +40,5 @@ export class AttributeModifierHelper {
 		const modifier = new $AttributeModifier(this.modifierUUID, this.modifierName, value, operation);
 		this.getAttributeInstance().addPermanentModifier(modifier);
 		return this;
-	}
-
-	public updateHealth() {
-		// players should only have their health updated right after respawning
-		if (this.entity instanceof $Player && this.entity.stats.timeSinceDeath !== 1) {
-			return;
-		}
-
-		const maxHealth = this.entity.attributes.getValue(this.attribute);
-		if (this.entity.health > maxHealth) {
-			this.entity.health = maxHealth;
-		}
 	}
 }

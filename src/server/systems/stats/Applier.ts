@@ -1,5 +1,3 @@
-import { AttributeHelper } from "../../../libraries/AttributeHelper";
-import { AttributeModifierHelper } from "../../../libraries/AttributeModifierHelper";
 import { UUIDHelper } from "../../../libraries/UUIDHelper";
 import { StatsDataHelper } from "./DataHelper";
 import { StatType, VariableAttributeModifier } from "./StatTypes";
@@ -42,15 +40,15 @@ export class StatsApplier {
 		const points = this.statsDataHelper.getPointsFromStat(statType);
 		const newValue = amountPerPoint * points;
 
-		const helper = new AttributeModifierHelper(this.player, AttributeHelper.getAttributeFromId(this.server, modifier.attributeId), UUID.fromString(modifier.uuid), modifier.name);
-		const oldValue = helper.getModifierValue();
+		//const helper = new AttributeModifierHelper(this, AttributeHelper.getAttribute(this.server, modifier.attributeId), UUID.fromString(modifier.uuid), modifier.name);
+		// const oldValue = helper.getModifierValue();
 
-		if (newValue != oldValue) {
-			helper.removeModifier().addModifier(newValue, modifier.operation);
-			if (modifier.attributeId == "minecraft:generic.max_health") {
-				helper.updateHealth();
-			}
-		}
+		// if (newValue != oldValue) {
+		// 	helper.removeModifier().addModifier(newValue, modifier.operation);
+		// 	if (modifier.attributeId == "minecraft:generic.max_health") {
+		// 		helper.updateHealth();
+		// 	}
+		// }
 	}
 
 	private applyStats() {
