@@ -5,6 +5,7 @@ import { ComparisonType, IComparison } from "./Meta";
 export namespace EntityCondition {
 	interface Base {
 		type: string;
+		inverted?: boolean;
 	}
 
 
@@ -46,5 +47,49 @@ export namespace EntityCondition {
 		};
 	}
 
-	export type Any = ILiving | IAir | IResource;
+
+
+	export interface IEntityType extends Base {
+		type: "origins:entity_type",
+		entity_type: string
+	}
+	export function entityType(entity_type: string, inverted: boolean = false): IEntityType {
+		return {
+			type: "origins:entity_type",
+			entity_type: entity_type,
+			inverted: inverted
+		}
+	}
+
+
+
+	export interface IOr extends Base {
+		type: "origins:or",
+		conditions: AnyType[];
+	}
+	export function or(...anyType: AnyType[]): IOr;
+	export function or(): IOr {
+		const conditions: AnyType[] = Array.from(arguments);
+		return {
+			type: "origins:or",
+			conditions: conditions
+		};
+	}
+
+
+
+	export interface IAnd extends Base {
+		type: "origins:and",
+		conditions: AnyType[];
+	}
+	export function and(...anyType: AnyType[]): IAnd;
+	export function and(): IAnd {
+		const conditions: AnyType[] = Array.from(arguments);
+		return {
+			type: "origins:and",
+			conditions: conditions
+		};
+	}
+
+	export type AnyType = ILiving | IAir | IResource | IEntityType | IAnd | IOr;
 }

@@ -1,5 +1,5 @@
-max_value = 20
-base_cost = 80
+max_value = 3
+base_cost = 100
 total_points = 0
 total_cost = 0
 

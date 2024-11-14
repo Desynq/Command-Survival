@@ -1,0 +1,231 @@
+{
+	"type": "origins:multiple",
+	"stats0": {
+		"condition": {
+			"type": "origins:resource",
+			"resource": "command_survival:origins/sculker/absorb_level",
+			"comparison": "==",
+			"compare_to": 0
+		},
+		"type": "origins:conditioned_attribute",
+		"modifiers": [
+			{
+				"attribute": "minecraft:generic.max_health",
+				"operation": "multiply_total",
+				"value": -0.4
+			},
+			{
+				"attribute": "minecraft:generic.attack_damage",
+				"operation": "multiply_total",
+				"value": -0.4
+			},
+			{
+				"attribute": "minecraft:generic.attack_speed",
+				"operation": "multiply_total",
+				"value": -0.4
+			},
+			{
+				"attribute": "minecraft:generic.armor_toughness",
+				"operation": "multiply_total",
+				"value": -0.4
+			},
+			{
+				"attribute": "minecraft:generic.movement_speed",
+				"operation": "multiply_total",
+				"value": -0.4
+			}
+		],
+		"tick_rate": 5,
+		"update_health": true
+	},
+	"stats1": {
+		"condition": {
+			"type": "origins:resource",
+			"resource": "command_survival:origins/sculker/absorb_level",
+			"comparison": "==",
+			"compare_to": 1
+		},
+		"type": "origins:conditioned_attribute",
+		"modifiers": [
+			{
+				"attribute": "minecraft:generic.max_health",
+				"operation": "multiply_total",
+				"value": -0.2
+			},
+			{
+				"attribute": "minecraft:generic.attack_damage",
+				"operation": "multiply_total",
+				"value": -0.2
+			},
+			{
+				"attribute": "minecraft:generic.attack_speed",
+				"operation": "multiply_total",
+				"value": -0.2
+			},
+			{
+				"attribute": "minecraft:generic.armor_toughness",
+				"operation": "multiply_total",
+				"value": -0.2
+			},
+			{
+				"attribute": "minecraft:generic.movement_speed",
+				"operation": "multiply_total",
+				"value": -0.2
+			}
+		],
+		"tick_rate": 5,
+		"update_health": true
+	},
+	"stats2": {
+		"condition": {
+			"type": "origins:resource",
+			"resource": "command_survival:origins/sculker/absorb_level",
+			"comparison": "==",
+			"compare_to": 2
+		},
+		"type": "origins:conditioned_attribute",
+		"modifiers": [
+			{
+				"attribute": "minecraft:generic.max_health",
+				"operation": "multiply_total",
+				"value": 0
+			},
+			{
+				"attribute": "minecraft:generic.attack_damage",
+				"operation": "multiply_total",
+				"value": 0
+			},
+			{
+				"attribute": "minecraft:generic.attack_speed",
+				"operation": "multiply_total",
+				"value": 0
+			},
+			{
+				"attribute": "minecraft:generic.armor_toughness",
+				"operation": "multiply_total",
+				"value": 0
+			},
+			{
+				"attribute": "minecraft:generic.movement_speed",
+				"operation": "multiply_total",
+				"value": 0
+			}
+		],
+		"tick_rate": 5,
+		"update_health": true
+	},
+	"stats3": {
+		"condition": {
+			"type": "origins:resource",
+			"resource": "command_survival:origins/sculker/absorb_level",
+			"comparison": "==",
+			"compare_to": 3
+		},
+		"type": "origins:conditioned_attribute",
+		"modifiers": [
+			{
+				"attribute": "minecraft:generic.max_health",
+				"operation": "multiply_total",
+				"value": 0.2
+			},
+			{
+				"attribute": "minecraft:generic.attack_damage",
+				"operation": "multiply_total",
+				"value": 0.2
+			},
+			{
+				"attribute": "minecraft:generic.attack_speed",
+				"operation": "multiply_total",
+				"value": 0.2
+			},
+			{
+				"attribute": "minecraft:generic.armor_toughness",
+				"operation": "multiply_total",
+				"value": 0.2
+			},
+			{
+				"attribute": "minecraft:generic.movement_speed",
+				"operation": "multiply_total",
+				"value": 0.2
+			}
+		],
+		"tick_rate": 5,
+		"update_health": true
+	},
+	"stats4": {
+		"condition": {
+			"type": "origins:resource",
+			"resource": "command_survival:origins/sculker/absorb_level",
+			"comparison": "==",
+			"compare_to": 4
+		},
+		"type": "origins:conditioned_attribute",
+		"modifiers": [
+			{
+				"attribute": "minecraft:generic.max_health",
+				"operation": "multiply_total",
+				"value": 0.4
+			},
+			{
+				"attribute": "minecraft:generic.attack_damage",
+				"operation": "multiply_total",
+				"value": 0.4
+			},
+			{
+				"attribute": "minecraft:generic.attack_speed",
+				"operation": "multiply_total",
+				"value": 0.4
+			},
+			{
+				"attribute": "minecraft:generic.armor_toughness",
+				"operation": "multiply_total",
+				"value": 0.4
+			},
+			{
+				"attribute": "minecraft:generic.movement_speed",
+				"operation": "multiply_total",
+				"value": 0.4
+			}
+		],
+		"tick_rate": 5,
+		"update_health": true
+	},
+	"stats4_": {
+		"condition": {
+			"type": "origins:resource",
+			"resource": "command_survival:origins/sculker/absorb_level",
+			"comparison": "==",
+			"compare_to": 5
+		},
+		"type": "origins:conditioned_attribute",
+		"modifiers": [
+			{
+				"attribute": "minecraft:generic.max_health",
+				"operation": "multiply_total",
+				"value": 0.6
+			},
+			{
+				"attribute": "minecraft:generic.attack_damage",
+				"operation": "multiply_total",
+				"value": 0.6
+			},
+			{
+				"attribute": "minecraft:generic.attack_speed",
+				"operation": "multiply_total",
+				"value": 0.6
+			},
+			{
+				"attribute": "minecraft:generic.armor_toughness",
+				"operation": "multiply_total",
+				"value": 0.6
+			},
+			{
+				"attribute": "minecraft:generic.movement_speed",
+				"operation": "multiply_total",
+				"value": 0.6
+			}
+		],
+		"tick_rate": 5,
+		"update_health": true
+	}
+}

@@ -183,7 +183,7 @@ const CustomStats = (function () {
 	 * @param {Internal.Player} player
 	 */
 	Class.prototype.applyAgility = function (player) {
-		this.applyGenericAttribute(player, "agility", $Attributes.MOVEMENT_SPEED, 0.005, "addition");
+		this.applyGenericAttribute(player, "agility", $Attributes.MOVEMENT_SPEED, 0.0025, "addition");
 	}
 
 	/**

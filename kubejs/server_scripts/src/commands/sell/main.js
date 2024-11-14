@@ -27,7 +27,9 @@ const SellableItems = {
 	"minecraft:gold_ingot": [Money.FromDollar(10.00)],
 	"minecraft:copper_ingot": [Money.FromDollar(0.50), 0.2, 400],
 	"create:zinc_ingot": [Money.FromDollar(2.00), 0.2, 200],
-	"minecraft:netherite_ingot": [Money.FromDollar(1000.0), 0.5, 100],
+	"minecraft:netherite_ingot": [Money.FromDollar(1000.00), 0.5, 100],
+	"oreganized:silver_ingot": [Money.FromDollar(10.00), 0.5, 512],
+	"oreganized:lead_ingot": [Money.FromDollar(10.00), 0.5, 512],
 
 	// farming
 	"minecraft:carrot": [Money.FromDollar(0.20), 0.5, 5000],
@@ -47,6 +49,17 @@ const SellableItems = {
 	// mob drops
 	"minecraft:tropical_fish": [Money.FromDollar(5.00), 0.5, 100],
 	"minecraft:slime_ball": [Money.FromDollar(1.00)],
+	"minecraft:nether_star": [Money.FromDollar(2500.00)],
+	"minecraft:blaze_powder": [Money.FromDollar(5.00, 0.5, 250)],
+	"minecraft:ghast_tear": [Money.FromDollar(50.00, 0.5, 64)],
+	"minecraft:phantom_membrane": [Money.FromDollar(20.00, 0.5, 128)],
+	"minecraft:bone_meal": [Money.FromDollar(0.50, 0.5, 512)],
+	"minecraft:rotten_flesh": [Money.FromDollar(0.50, 0.5, 512)],
+	"minecraft:string": [Money.FromDollar(1.00, 0.5, 512)],
+	"minecraft:spider_eye": [Money.FromDollar(5.00, 0.5, 512)],
+	"minecraft:feather": [Money.FromDollar(2.50, 0.5, 512)],
+
+	"alexsmobs:farseer_arm": [Money.FromDollar(100.00, 0.5, 64 * 2)],
 
 	// economy
 	"createdeco:gold_coin": [Money.FromDollar(1.20)],

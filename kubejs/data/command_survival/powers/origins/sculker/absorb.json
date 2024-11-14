@@ -1,0 +1,137 @@
+{
+	"name": "Experience Absorption",
+	"description": "You can absorb experience in order to \"evolve\" and improve your abilities, you can also \"devolve\" to release your absorbed experience back into your experience pool",
+	"badges": [
+		{
+			"type": "origins:tooltip",
+			"text": "Costs 2000 to level up, max 5 levels",
+			"sprite": "origins:textures/gui/badge/info.png"
+		}
+	],
+	"type": "origins:multiple",
+	"level": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 5,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 6
+		}
+	},
+	"increase": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:xp_points",
+					"comparison": ">=",
+					"compare_to": 2000
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/sculker/absorb_level",
+					"comparison": "<",
+					"compare_to": 5
+				},
+				{
+					"inverted": true,
+					"type": "origins:sneaking"
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/sculker/absorb_level",
+					"change": 1,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "experience add @s -2000 points"
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:block.sculk_shrieker.shriek",
+					"volume": 1,
+					"pitch": 1
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:sculk_soul",
+					"count": 50,
+					"speed": 0.1,
+					"spread": {
+						"x": 0.5,
+						"y": 0.7,
+						"z": 0.5
+					},
+					"offset_y": 1
+				}
+			]
+		},
+		"cooldown": 40,
+		"key": {
+			"key": "key.origins.secondary_active"
+		}
+	},
+	"decrease": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/sculker/absorb_level",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:sneaking"
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/sculker/absorb_level",
+					"change": -1,
+					"operation": "add"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "experience add @s 2000 points"
+				},
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:block.sculk_sensor.clicking",
+					"volume": 1,
+					"pitch": 1
+				},
+				{
+					"type": "origins:spawn_particles",
+					"particle": "minecraft:ash",
+					"count": 50,
+					"speed": 0.1,
+					"spread": {
+						"x": 0.5,
+						"y": 0.7,
+						"z": 0.5
+					},
+					"offset_y": 1
+				}
+			]
+		},
+		"cooldown": 40,
+		"key": {
+			"key": "key.origins.secondary_active"
+		}
+	}
+}

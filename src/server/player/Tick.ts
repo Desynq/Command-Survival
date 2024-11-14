@@ -18,4 +18,17 @@ ItemEvents.canPickUp(event => {
 	if (player && player.creative && !player.crouching && !player.onGround()) {
 		event.cancel();
 	}
-})
+});
+
+
+
+// ForgeEvents.onEvent("net.minecraftforge.event.entity.living.LivingEntityUseItemEvent$Finish", event => {
+// 	if (event.entity.type !== "minecraft:player") {
+// 		return;
+// 	}
+// 	const player: Internal.Player = event.entity as any;
+
+// 	if (!event.item.item.foodProperties.meat) {
+// 		return;
+// 	}
+// });

@@ -2,7 +2,10 @@
 	"name": "Dryad",
 	"description": "You're one with nature or some shit",
 	"powers": [
-		"command_survival:origins/dryad/earth-inventory"
+		"command_survival:origins/dryad/earth-inventory",
+		"command_survival:origins/dryad/drink",
+		"command_survival:origins/dryad/solar",
+		"command_survival:origins/dryad/water"
 	],
 	"icon": {
 		"item": "twilightforest:steeleaf_ingot"

@@ -1,3 +1,9 @@
+global.events = {
+	LivingEntityUseItemEvent$Finish(event: Internal.LivingEntityUseItemEvent$Finish): void {}
+};
+
+
+
 BlockEvents.modification(event => {
 	event.modify("dimdoors:block_ag_dim_dimdoors_quartz_door" as any, block => {
 		block.destroySpeed = -1;
@@ -17,3 +23,8 @@ StartupEvents.registry("minecraft:mob_effect", event => {
 		})
 		.displayName(Component.darkAqua("Pinged") as any)
 });
+
+
+
+
+ForgeEvents.onEvent("net.minecraftforge.event.entity.living.LivingEntityUseItemEvent$Finish", event => global.events.LivingEntityUseItemEvent$Finish(event));

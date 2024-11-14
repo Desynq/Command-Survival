@@ -1,0 +1,20 @@
+{
+	"name": "Sculk",
+	"description": "Mold mimicking humans",
+
+	"powers": [
+		"command_survival:generated/motion-vision",
+		"command_survival:origins/sculker/absorb",
+		"command_survival:origins/sculker/blast",
+		"command_survival:origins/sculker/exp_eat",
+		"command_survival:origins/sculker/heal",
+		"command_survival:origins/sculker/sculk_affinity",
+		"command_survival:origins/sculker/sculk_creation",
+		"command_survival:origins/sculker/stats"
+	],
+	"icon": {
+		"item": "deeperdarker:heart_of_the_deep"
+	},
+	"order": 3,
+	"impact": 3
+}

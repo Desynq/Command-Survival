@@ -1,0 +1,131 @@
+{
+	"type": "origins:multiple",
+	"solar": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 400,
+		"start_value": 100,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+			"bar_index": 24
+		}
+	},
+	"sun": {
+		"condition": {
+			"type": "origins:exposed_to_sun"
+		},
+		"type": "origins:action_over_time",
+		"interval": 10,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/dryad/solar_solar",
+			"change": 10,
+			"operation": "add"
+		}
+	},
+	"feed": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/dryad/water_water",
+					"comparison": ">=",
+					"compare_to": 10
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/dryad/solar_solar",
+					"comparison": ">=",
+					"compare_to": 20
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<",
+					"compare_to": 20
+				}
+			]
+		},
+		"type": "origins:action_over_time",
+		"interval": 10,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:feed",
+					"food": 1,
+					"saturation": 0
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/dryad/water_water",
+					"change": -10,
+					"operation": "add"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/dryad/solar_solar",
+					"change": -20,
+					"operation": "add"
+				}
+			]
+		}
+	},
+	"sat": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/dryad/water_water",
+					"comparison": ">=",
+					"compare_to": 10
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/dryad/solar_solar",
+					"comparison": ">=",
+					"compare_to": 20
+				},
+				{
+					"type": "origins:saturation_level",
+					"comparison": "<",
+					"compare_to": 20
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "==",
+					"compare_to": 20
+				},
+				{
+					"type": "origins:exposed_to_sun"
+				}
+			]
+		},
+		"type": "origins:action_over_time",
+		"interval": 40,
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:feed",
+					"food": 1,
+					"saturation": 1
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/dryad/water_water",
+					"change": -10,
+					"operation": "add"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "command_survival:origins/dryad/solar_solar",
+					"change": -20,
+					"operation": "add"
+				}
+			]
+		}
+	}
+}

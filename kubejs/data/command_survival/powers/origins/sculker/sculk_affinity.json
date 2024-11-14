@@ -1,0 +1,19 @@
+{
+	"name": "Sculk Affinity",
+	"description": "All sculk creatures are neutral towards you, and you do not trigger sculk sensors\n(walking into wardens, and on top of sculk sensors still triggers them)",
+	"type": "origins:multiple",
+	"sculkaffinity": {
+		"type": "origins:stacking_status_effect",
+		"min_stacks": 1,
+		"max_stacks": 1,
+		"duration_per_stack": 500,
+		"tick_rate": 10,
+		"effect": {
+			"effect": "deeperdarker:sculk_affinity",
+			"duration": 100,
+			"amplifier": 0,
+			"show_particles": false,
+			"show_icon": false
+		}
+	}
+}

@@ -12,9 +12,9 @@ export namespace BiEntityCondition {
 
 	export interface ITarget extends Base {
 		type: "origins:target_condition";
-		condition: EntityCondition.Any;
+		condition: EntityCondition.AnyType;
 	}
-	export function target(condition: EntityCondition.Any): ITarget {
+	export function target(condition: EntityCondition.AnyType): ITarget {
 		return {
 			type: "origins:target_condition",
 			condition: condition

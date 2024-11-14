@@ -1,0 +1,80 @@
+{
+	"name": "Refuel",
+	"hidden": true,
+	"type": "origins:multiple",
+	"water": {
+		"type": "apugli:edible_item",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:water_bucket"
+			}
+		},
+		"food_component": {
+			"hunger": 0,
+			"saturation": 0,
+			"always_edible": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/dryad/water_water",
+			"change": 200,
+			"operation": "add"
+		},
+		"return_stack": {
+			"item": "minecraft:bucket",
+			"amount": 1
+		},
+		"use_action": "drink"
+	},
+	"waterbottle": {
+		"type": "origins:action_on_item_use",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/dryad/water_water",
+			"change": 100,
+			"operation": "add"
+		},
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:potion"
+			}
+		},
+		"trigger": "finish",
+		"priority": 0
+	},
+	"waterstand": {
+		"condition": {
+			"type": "origins:in_block",
+			"block_condition": {
+				"type": "origins:fluid",
+				"fluid_condition": {
+					"type": "origins:fluid",
+					"fluid": "minecraft:water"
+				}
+			}
+		},
+		"type": "origins:action_over_time",
+		"interval": 10,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/dryad/water_water",
+			"change": 15,
+			"operation": "add"
+		}
+	},
+	"rain": {
+		"condition": {
+			"type": "origins:in_rain"
+		},
+		"type": "origins:action_over_time",
+		"interval": 10,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "command_survival:origins/dryad/water_water",
+			"change": 10,
+			"operation": "add"
+		}
+	}
+}

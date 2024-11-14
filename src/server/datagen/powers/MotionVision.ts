@@ -14,13 +14,20 @@ namespace EntityRenderPower {
 	const IS_FAR_AWAY = BiEntityCondition.distance(">", 64);
 
 	const resourceId = "command_survival:global/resource/time-since-last-movement";
-	const HASNT_MOVED_FOR_OVER_A_SECOND = BiEntityCondition.target(EntityCondition.resource(resourceId, ">", 20));
+
+	const PLAYER_HASNT_MOVED = EntityCondition.and(
+		EntityCondition.entityType("minecraft:player"),
+		EntityCondition.resource(resourceId, ">", 5)
+	);
+	const ENTITY_HASNT_MOVED = EntityCondition.resource(resourceId, ">", 20);
+
+	const HASNT_MOVED = BiEntityCondition.target(EntityCondition.or(PLAYER_HASNT_MOVED, ENTITY_HASNT_MOVED));
 
 	export const INSTANCE: PowerType.IPreventEntityRender = {
 		"type": "origins:prevent_entity_render",
 		"bientity_condition": BiEntityCondition.and(
 			BiEntityCondition.target(EntityCondition.living()),
-			BiEntityCondition.or(IS_FAR_AWAY, HASNT_MOVED_FOR_OVER_A_SECOND)
+			BiEntityCondition.or(IS_FAR_AWAY, HASNT_MOVED)
 		)
 	};
 }

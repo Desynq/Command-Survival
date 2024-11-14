@@ -44,8 +44,8 @@
 			"alexsmobs:debilitating_sting",
 			"farmersdelight:comfort",
 			"farmersdelight:nourishment",
-			"minecraft:hunger",
-			"minecraft:saturation"
+			"minecraft:saturation",
+			"oreganized:stunning"
 		]
 	}
 }

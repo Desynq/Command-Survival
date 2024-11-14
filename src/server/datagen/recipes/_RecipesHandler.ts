@@ -5,9 +5,9 @@ import { ShapedRecipeTemplate } from "./Main";
 
 export abstract class RecipesHandler {
 	protected static handlers: RecipesHandler[] = [];
-	protected event: Internal.RecipesEventJS | undefined;
+	protected event!: Internal.RecipesEventJS;
 
-	protected abstract handleEvent(event: Internal.RecipesEventJS): void;
+	protected abstract handleEvent(event: Internal.RecipesEventJS): void
 
 
 
@@ -31,6 +31,7 @@ export abstract class RecipesHandler {
 
 	public static register(event: Internal.RecipesEventJS): void {
 		this.handlers.forEach(handler => {
+			handler.event = event;
 			handler.handleEvent(event);
 		});
 	}
@@ -115,10 +116,6 @@ class DyeRecipes extends RecipesHandler {
 	}
 }
 
-
-
-
-
 class Cave {
 	public static readonly ABYSSAL_CHASM = new this("alexscaves:abyssal_chasm", "Abyssal Chasm");
 	public static readonly CANDY_CAVITY = new this("alexscaves:candy_cavity", "Candy Cavity");
@@ -196,11 +193,6 @@ class AlexsCavesRecipes extends RecipesHandler {
 					["minecraft:pink_dye", "minecraft:cake", "minecraft:pink_dye"]
 				]
 			);
-	}
-
-	private newCaveTabletRecipeOld(cave: Cave, pattern: string[], key: Record<string, string>): this {
-		this.newShapedOld(this.getCaveTabletItem(cave), pattern, key);
-		return this;
 	}
 
 	private newCaveTabletRecipe(cave: Cave, table: Special.Item[][]): this {

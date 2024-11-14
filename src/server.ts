@@ -1,6 +1,6 @@
 import { EntityHelper } from "./server/entity/Helper";
 import { DieCommand } from "./server/commands/Die";
-import * as AlexsMobsRecipes from "./server/datagen/recipes/AlexsMobs"
+import * as AlexsMobsRecipes from "./server/datagen/recipes/AlexsMobs";
 import { DimensionalDoorsRecipes } from "./server/datagen/recipes/DimensionalDoors";
 import { PlayerTick } from "./server/player/Tick";
 import { OnServerLoad } from "./server/world/OnLoad";
@@ -9,6 +9,8 @@ import { LootTableHandler } from "./server/datagen/loot_tables/_Handler";
 import { MystFacility } from "./server/world/dimension/MystFacility";
 import { Entity } from "./server/entity/Main";
 import { Powers } from "./server/datagen/powers/_main";
+
+import "./server/datagen/recipes/Tetra";
 
 
 

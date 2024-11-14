@@ -69,5 +69,5 @@ export namespace LivingEntity {
 
 
 ServerEvents.tick(event => {
-	Utils.server.entities.forEach(entity => Entity.tick(entity));
+	// Utils.server.entities.forEach(entity => Entity.tick(entity));
 });

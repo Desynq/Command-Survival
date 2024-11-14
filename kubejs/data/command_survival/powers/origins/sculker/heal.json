@@ -1,0 +1,574 @@
+{
+	"hidden": true,
+	"type": "origins:multiple",
+	"heal0": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:xp_points",
+					"comparison": ">=",
+					"compare_to": 20
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/sculker/absorb_level",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.warden.listening",
+					"volume": 3,
+					"pitch": 1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s add sculk_heal"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "experience add @s -20 points"
+				},
+				{
+					"type": "origins:delay",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:raycast",
+								"distance": 20,
+								"block": true,
+								"entity": true,
+								"shape_type": "collider",
+								"fluid_handling": "none",
+								"command_at_hit": "particle minecraft:sculk_charge_pop ~ ~ ~ 0.5 0.5 0.5 0.1 10",
+								"command_along_ray": "particle minecraft:sculk_charge_pop ~ ~ ~ 0.5 0.5 0.5 0.1 10",
+								"command_step": 0.5
+							},
+							{
+								"type": "origins:raycast",
+								"distance": 20,
+								"block": true,
+								"entity": true,
+								"shape_type": "collider",
+								"fluid_handling": "none",
+								"command_at_hit": "execute as @e[tag=!sculk_heal,distance=0..4] run effect give @s minecraft:instant_health 1 0",
+								"command_along_ray": "execute as @e[tag=!sculk_heal,distance=0..2] run effect give @s minecraft:instant_health 1 1",
+								"command_step": 0.5
+							},
+							{
+								"type": "origins:play_sound",
+								"sound": "minecraft:entity.warden.attack_impact",
+								"volume": 5,
+								"pitch": 1
+							}
+						]
+					},
+					"ticks": 10
+				},
+				{
+					"type": "origins:delay",
+					"action": {
+						"type": "origins:execute_command",
+						"command": "tag @s remove sculk_heal"
+					},
+					"ticks": 11
+				}
+			]
+		},
+		"cooldown": 200,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 8
+		},
+		"key": {
+			"key": "key.origins.primary_active"
+		}
+	},
+	"heal1": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:xp_points",
+					"comparison": ">=",
+					"compare_to": 40
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/sculker/absorb_level",
+					"comparison": "==",
+					"compare_to": 1
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.warden.listening",
+					"volume": 3,
+					"pitch": 1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s add sculk_heal"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "experience add @s -40 points"
+				},
+				{
+					"type": "origins:delay",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:raycast",
+								"distance": 20,
+								"block": true,
+								"entity": true,
+								"shape_type": "collider",
+								"fluid_handling": "none",
+								"command_at_hit": "particle minecraft:sculk_charge_pop ~ ~ ~ 0.5 0.5 0.5 0.1 10",
+								"command_along_ray": "particle minecraft:sculk_charge_pop ~ ~ ~ 0.5 0.5 0.5 0.1 10",
+								"command_step": 0.5
+							},
+							{
+								"type": "origins:raycast",
+								"distance": 20,
+								"block": true,
+								"entity": true,
+								"shape_type": "collider",
+								"fluid_handling": "none",
+								"command_at_hit": "execute as @e[tag=!sculk_heal,distance=0..4] run effect give @s minecraft:instant_health 2 1",
+								"command_along_ray": "execute as @e[tag=!sculk_heal,distance=0..2] run effect give @s minecraft:instant_health 2 1",
+								"command_step": 0.5
+							},
+							{
+								"type": "origins:play_sound",
+								"sound": "minecraft:entity.warden.attack_impact",
+								"volume": 5,
+								"pitch": 1
+							}
+						]
+					},
+					"ticks": 10
+				},
+				{
+					"type": "origins:delay",
+					"action": {
+						"type": "origins:execute_command",
+						"command": "tag @s remove sculk_heal"
+					},
+					"ticks": 11
+				}
+			]
+		},
+		"cooldown": 200,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 8
+		},
+		"key": {
+			"key": "key.origins.primary_active"
+		}
+	},
+	"heal2": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:xp_points",
+					"comparison": ">=",
+					"compare_to": 60
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/sculker/absorb_level",
+					"comparison": "==",
+					"compare_to": 2
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.warden.listening",
+					"volume": 3,
+					"pitch": 1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s add sculk_heal"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "experience add @s -60 points"
+				},
+				{
+					"type": "origins:delay",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:raycast",
+								"distance": 20,
+								"block": true,
+								"entity": true,
+								"shape_type": "collider",
+								"fluid_handling": "none",
+								"command_at_hit": "particle minecraft:sculk_charge_pop ~ ~ ~ 0.5 0.5 0.5 0.1 10",
+								"command_along_ray": "particle minecraft:sculk_charge_pop ~ ~ ~ 0.5 0.5 0.5 0.1 10",
+								"command_step": 0.5
+							},
+							{
+								"type": "origins:raycast",
+								"distance": 20,
+								"block": true,
+								"entity": true,
+								"shape_type": "collider",
+								"fluid_handling": "none",
+								"command_at_hit": "execute as @e[tag=!sculk_heal,distance=0..4] run effect give @s minecraft:instant_health 3 1",
+								"command_along_ray": "execute as @e[tag=!sculk_heal,distance=0..2] run effect give @s minecraft:instant_health 3 1",
+								"command_step": 0.5
+							},
+							{
+								"type": "origins:play_sound",
+								"sound": "minecraft:entity.warden.attack_impact",
+								"volume": 5,
+								"pitch": 1
+							}
+						]
+					},
+					"ticks": 10
+				},
+				{
+					"type": "origins:delay",
+					"action": {
+						"type": "origins:execute_command",
+						"command": "tag @s remove sculk_heal"
+					},
+					"ticks": 11
+				}
+			]
+		},
+		"cooldown": 200,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 8
+		},
+		"key": {
+			"key": "key.origins.primary_active"
+		}
+	},
+	"heal3": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:xp_points",
+					"comparison": ">=",
+					"compare_to": 80
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/sculker/absorb_level",
+					"comparison": "==",
+					"compare_to": 3
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.warden.listening",
+					"volume": 3,
+					"pitch": 1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s add sculk_heal"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "experience add @s -80 points"
+				},
+				{
+					"type": "origins:delay",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:raycast",
+								"distance": 20,
+								"block": true,
+								"entity": true,
+								"shape_type": "collider",
+								"fluid_handling": "none",
+								"command_at_hit": "particle minecraft:sculk_charge_pop ~ ~ ~ 0.5 0.5 0.5 0.1 10",
+								"command_along_ray": "particle minecraft:sculk_charge_pop ~ ~ ~ 0.5 0.5 0.5 0.1 10",
+								"command_step": 0.5
+							},
+							{
+								"type": "origins:raycast",
+								"distance": 20,
+								"block": true,
+								"entity": true,
+								"shape_type": "collider",
+								"fluid_handling": "none",
+								"command_at_hit": "execute as @e[tag=!sculk_heal,distance=0..4] run effect give @s minecraft:instant_health 4 1",
+								"command_along_ray": "execute as @e[tag=!sculk_heal,distance=0..2] run effect give @s minecraft:instant_health 4 1",
+								"command_step": 0.5
+							},
+							{
+								"type": "origins:play_sound",
+								"sound": "minecraft:entity.warden.attack_impact",
+								"volume": 5,
+								"pitch": 1
+							}
+						]
+					},
+					"ticks": 10
+				},
+				{
+					"type": "origins:delay",
+					"action": {
+						"type": "origins:execute_command",
+						"command": "tag @s remove sculk_heal"
+					},
+					"ticks": 11
+				}
+			]
+		},
+		"cooldown": 200,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 8
+		},
+		"key": {
+			"key": "key.origins.primary_active"
+		}
+	},
+	"heal4": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:xp_points",
+					"comparison": ">=",
+					"compare_to": 100
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/sculker/absorb_level",
+					"comparison": "==",
+					"compare_to": 4
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.warden.listening",
+					"volume": 3,
+					"pitch": 1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s add sculk_heal"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "experience add @s -100 points"
+				},
+				{
+					"type": "origins:delay",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:raycast",
+								"distance": 20,
+								"block": true,
+								"entity": true,
+								"shape_type": "collider",
+								"fluid_handling": "none",
+								"command_at_hit": "particle minecraft:sculk_charge_pop ~ ~ ~ 0.5 0.5 0.5 0.1 10",
+								"command_along_ray": "particle minecraft:sculk_charge_pop ~ ~ ~ 0.5 0.5 0.5 0.1 10",
+								"command_step": 0.5
+							},
+							{
+								"type": "origins:raycast",
+								"distance": 20,
+								"block": true,
+								"entity": true,
+								"shape_type": "collider",
+								"fluid_handling": "none",
+								"command_at_hit": "execute as @e[tag=!sculk_heal,distance=0..4] run effect give @s minecraft:instant_health 5 1",
+								"command_along_ray": "execute as @e[tag=!sculk_heal,distance=0..2] run effect give @s minecraft:instant_health 5 1",
+								"command_step": 0.5
+							},
+							{
+								"type": "origins:play_sound",
+								"sound": "minecraft:entity.warden.attack_impact",
+								"volume": 5,
+								"pitch": 1
+							}
+						]
+					},
+					"ticks": 10
+				},
+				{
+					"type": "origins:delay",
+					"action": {
+						"type": "origins:execute_command",
+						"command": "tag @s remove sculk_heal"
+					},
+					"ticks": 11
+				}
+			]
+		},
+		"cooldown": 200,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 8
+		},
+		"key": {
+			"key": "key.origins.primary_active"
+		}
+	},
+	"heal5": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:xp_points",
+					"comparison": ">=",
+					"compare_to": 120
+				},
+				{
+					"type": "origins:resource",
+					"resource": "command_survival:origins/sculker/absorb_level",
+					"comparison": "==",
+					"compare_to": 5
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:play_sound",
+					"sound": "minecraft:entity.warden.listening",
+					"volume": 3,
+					"pitch": 1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "tag @s add sculk_heal"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "experience add @s -120 points"
+				},
+				{
+					"type": "origins:delay",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:raycast",
+								"distance": 20,
+								"block": true,
+								"entity": true,
+								"shape_type": "collider",
+								"fluid_handling": "none",
+								"command_at_hit": "particle minecraft:sculk_charge_pop ~ ~ ~ 0.5 0.5 0.5 0.1 10",
+								"command_along_ray": "particle minecraft:sculk_charge_pop ~ ~ ~ 0.5 0.5 0.5 0.1 10",
+								"command_step": 0.5
+							},
+							{
+								"type": "origins:raycast",
+								"distance": 20,
+								"block": true,
+								"entity": true,
+								"shape_type": "collider",
+								"fluid_handling": "none",
+								"command_at_hit": "execute as @e[tag=!sculk_heal,distance=0..4] run effect give @s minecraft:instant_health 6 1",
+								"command_along_ray": "execute as @e[tag=!sculk_heal,distance=0..2] run effect give @s minecraft:instant_health 6 1",
+								"command_step": 0.5
+							},
+							{
+								"type": "origins:play_sound",
+								"sound": "minecraft:entity.warden.attack_impact",
+								"volume": 5,
+								"pitch": 1
+							}
+						]
+					},
+					"ticks": 10
+				},
+				{
+					"type": "origins:delay",
+					"action": {
+						"type": "origins:execute_command",
+						"command": "tag @s remove sculk_heal"
+					},
+					"ticks": 11
+				}
+			]
+		},
+		"cooldown": 200,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 8
+		},
+		"key": {
+			"key": "key.origins.primary_active"
+		}
+	}
+}

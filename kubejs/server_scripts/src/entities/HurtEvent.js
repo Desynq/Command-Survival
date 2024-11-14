@@ -8,7 +8,7 @@ EntityEvents.hurt(event => {
 EntityEvents.hurt("minecraft:creeper", event => {
 	/** @type {Internal.Creeper} */
 	const creeper = event.entity;
-	if (creeper.isOnFire && !creeper.ignited) {
+	if (creeper.onFire && !creeper.ignited) {
 		creeper.ignite();
 	}
 });
