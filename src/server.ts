@@ -13,8 +13,11 @@ import "./server/datagen/powers/_main"
 
 import "./server/entity/Main";
 
+import "./server/player/Respawned";
+
 import "./server/world/dimension/MystFacility";
 
+import "./server/commands/Run";
 import "./server/commands/Update";
 
 
