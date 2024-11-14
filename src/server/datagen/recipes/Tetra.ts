@@ -18,7 +18,7 @@ class Tetra extends RecipesHandler {
 		"tetra:murasama_scroll"
 	];
 
-	protected handleEvent(event: Internal.RecipesEventJS) {
+	protected handleEvent() {
 		for (let recipeId of Tetra.RECIPE_IDS_TO_REMOVE) {
 			this.event.remove({ id: recipeId });
 		}
