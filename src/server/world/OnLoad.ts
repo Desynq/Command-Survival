@@ -16,6 +16,8 @@ export class OnServerLoad {
 		});
 
 		Utils.server.runCommandSilent("scoreboard objectives add time_since_last_movement dummy");
+
+		Utils.server.scheduleInTicks(0, callback => {});
 	}
 
 	private static adjustWorldBorder(level: Internal.ServerLevel) {
