@@ -23,7 +23,7 @@ class SculkXPEat {
 	public static eaten(player: Player, itemStack: Internal.ItemStack) {
 		const foodProperties = itemStack.item.foodProperties;
 
-		if (!foodProperties.isMeat) {
+		if (!foodProperties?.isMeat) {
 			return;
 		}
 
