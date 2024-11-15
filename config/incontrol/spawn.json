@@ -8,5 +8,10 @@
 		"dimension": "command_survival:myst/deadzone",
 		"passive": true,
 		"result": "deny"
+	},
+	{
+		"dimension": "command_survival:myst/deadzone",
+		"mob": "minecraft:bat",
+		"result": "deny"
 	}
 ]
