@@ -1,0 +1,7 @@
+{
+	"type": "origins:modify_food",
+	"item_condition": {
+		"type": "origins:meat"
+	},
+	"always_edible": true
+}

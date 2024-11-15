@@ -1,44 +1,86 @@
 {
-	"root_reach": {
-		"title": "Sculk",
+	"experience-eater": {
+		"title": "Experience Eater",
+		"description": "Instead of consuming food for nutrition and saturation, you instead consume your experience in order to sate yourself.",
 		"icon": {
 			"type": "item",
 			"data": {
-				"item": "minecraft:dandelion"
+				"item": "minecraft:experience_bottle"
 			}
 		},
+		"size": 2,
+		"cost": 0,
+		"required_skills": 0,
+		"rewards": []
+	},
+	"carnivore_1": {
+		"title": "Carnivore I",
+		"description": "You can consume meat at any time and convert it directly to experience points depending on its nutrition and saturation.",
+		"extra_description": {
+			"color": "yellow",
+			"text": "player.xp += (nutrition + (nutrition * saturationModifier)) * ⅙"
+		},
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:chicken"
+			}
+		},
+		"size": 1,
+		"cost": 1,
 		"rewards": [
 			{
-				"type": "puffish_skills:attribute",
+				"type": "puffish_skills_origins:power",
 				"data": {
-					"attribute": "forge:reach_distance",
-					"value": 1,
-					"operation": "addition"
+					"power": "command_survival:origins/sculker/skills/carnivore"
 				}
 			},
 			{
-				"type": "puffish_skills:command",
+				"type": "puffish_skills:tag",
 				"data": {
-					"command": "say Congradulations on your first level!"
+					"tag": "origin.sculker.carnivore_1"
 				}
 			}
 		]
 	},
-	"reach": {
-		"title": "+0.5 Reach",
+	"carnivore_2": {
+		"title": "Carnivore II",
+		"description": "You can more efficiently collect experience from consuming meat",
+		"extra_description": "player.xp += (nutrition + (nutrition * saturationModifier)) * ⅓",
 		"icon": {
 			"type": "item",
 			"data": {
-				"item": "minecraft:stick"
+				"item": "minecraft:mutton"
 			}
 		},
+		"size": 1,
+		"cost": 1,
 		"rewards": [
 			{
-				"type": "puffish_skills:attribute",
+				"type": "puffish_skills:tag",
 				"data": {
-					"attribute": "forge:reach_distance",
-					"value": 0.5,
-					"operation": "addition"
+					"tag": "origin.sculker.carnivore_2"
+				}
+			}
+		]
+	},
+	"carnivore_3": {
+		"title": "Carnivore III",
+		"description": "You are very efficient at collecting experience from consuming meat",
+		"extra_description": "player.xp += (nutrition + (nutrition * saturationModifier)) * ½",
+		"icon": {
+			"type": "item",
+			"data": {
+				"item": "minecraft:beef"
+			}
+		},
+		"size": 1,
+		"cost": 1,
+		"rewards": [
+			{
+				"type": "puffish_skills:tag",
+				"data": {
+					"tag": "origin.sculker.carnivore_3"
 				}
 			}
 		]

@@ -1,0 +1,10 @@
+{
+	"criteria": {
+		"chose_human": {
+			"trigger": "origins:chose_origin",
+			"conditions": {
+				"origin": "command_survival:sculker"
+			}
+		}
+	}
+}

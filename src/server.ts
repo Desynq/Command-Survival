@@ -9,7 +9,8 @@ import { LootTableHandler } from "./server/datagen/loot_tables/_Handler";
 
 import "./server/datagen/recipes/Tetra";
 
-import "./server/datagen/powers/_main"
+import "./server/datagen/datagen";
+import "./server/datagen/powers/_main";
 
 import "./server/entity/Main";
 
@@ -19,6 +20,9 @@ import "./server/world/dimension/MystFacility";
 
 import "./server/commands/Run";
 import "./server/commands/Update";
+
+import "./server/events/LivingEntityUseItemEvent$Finish";
+import "./server/events/Advancement";
 
 
 

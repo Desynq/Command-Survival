@@ -3,7 +3,7 @@
 	"description": "Mold mimicking humans",
 
 	"powers": [
-		"command_survival:generated/motion-vision",
+		"command_survival:origins/sculker/motion-vision",
 		"command_survival:origins/sculker/absorb",
 		"command_survival:origins/sculker/blast",
 		"command_survival:origins/sculker/exp_eat",

@@ -1,9 +1,17 @@
 {
 	"normal": {
-		"bidirectional": [
+		"unidirectional": [
 			[
-				"wcrz7e3v7a89tomz",
-				"9qsfle83rwfagb9n"
+				"xl7hsjc734si3v1p",
+				"eg3gwfr4hm0rgafh"
+			],
+			[
+				"eg3gwfr4hm0rgafh",
+				"0gqw40rfgolasdtv"
+			],
+			[
+				"2wqcxfdooex8tnjt",
+				"xl7hsjc734si3v1p"
 			]
 		]
 	}

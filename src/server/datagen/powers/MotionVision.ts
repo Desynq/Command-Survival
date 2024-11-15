@@ -78,5 +78,5 @@ export namespace MotionVisionPower {
 		}
 	};
 
-	JsonIO.write("kubejs/data/command_survival/powers/generated/motion-vision.json" as any, data as any);
+	JsonIO.write("kubejs/data/command_survival/powers/origins/sculker/motion-vision.json" as any, data as any);
 }

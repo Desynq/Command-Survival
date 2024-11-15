@@ -1,14 +1,26 @@
 {
-	"wcrz7e3v7a89tomz": {
-		"definition": "root_reach",
-		"x": 0,
-		"y": 0,
-		"root": true
-	},
-	"9qsfle83rwfagb9n": {
-		"definition": "reach",
+	"xl7hsjc734si3v1p": {
+		"definition": "carnivore_1",
 		"x": 0,
 		"y": -64,
+		"root": false
+	},
+	"eg3gwfr4hm0rgafh": {
+		"definition": "carnivore_2",
+		"x": 0,
+		"y": -128,
+		"root": false
+	},
+	"0gqw40rfgolasdtv": {
+		"definition": "carnivore_3",
+		"x": 0,
+		"y": -192,
+		"root": false
+	},
+	"2wqcxfdooex8tnjt": {
+		"definition": "experience-eater",
+		"x": 0,
+		"y": 0,
 		"root": false
 	}
 }
