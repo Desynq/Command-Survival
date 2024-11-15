@@ -16,7 +16,7 @@ export class SculkerAbsorb {
 
 
 	private attemptAdd(): void {
-		if (this.absorbLevel >= 5) {
+		if (this.absorbLevel >= 10) {
 			this.player.statusMessage = "You're at maximum experience absorption. Cannot upgrade any further." as any;
 			return;
 		}
