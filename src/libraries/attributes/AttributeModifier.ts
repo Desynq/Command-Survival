@@ -76,22 +76,18 @@ export class AttributeModifier {
 			return false;
 		}
 
+		const attrInstance = entity.attributes.getInstance(this.attribute);
+		const healthPercentage = entity.health / entity.attributes.getValue(AttributeHelper.MAX_HEALTH);
+
 		if (this.has(entity)) {
 			this.remove(entity);
-		}
-
-		const attrInstance = entity.attributes.getInstance(this.attribute);
-
-		let healthPercentage;
-		if (updateHealth) {
-			healthPercentage = entity.health / attrInstance.getValue();
 		}
 
 		const modifier = new $AttributeModifier(this.uuid, this.name, value, operation);
 		attrInstance.addPermanentModifier(modifier);
 
 		if (updateHealth) {
-			entity.health = attrInstance.getValue() * healthPercentage!;
+			entity.health = attrInstance.getValue() * healthPercentage;
 		}
 
 		return true;
