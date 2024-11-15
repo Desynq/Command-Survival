@@ -1,1 +1,12 @@
-[]
+[
+	{
+		"dimension": "command_survival:myst/deadzone",
+		"hostile": true,
+		"result": "deny"
+	},
+	{
+		"dimension": "command_survival:myst/deadzone",
+		"passive": true,
+		"result": "deny"
+	}
+]
