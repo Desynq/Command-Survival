@@ -66,24 +66,44 @@ AdminCommand.GetMoneyFromPlayer = function (context) {
 AdminCommand.Reload = function (context) {
 	const server = context.source.server;
 
-	server.players.tell("Reloading in 5 seconds");
+	server.players.tell("Reloading in 10 seconds");
 
 	server.scheduleInTicks(20, callback => {
-		server.players.tell("Reloading in 4 seconds");
+		server.players.tell("Reloading in 9 seconds");
 	});
 	server.scheduleInTicks(40, callback => {
-		server.players.tell("Reloading in 3 seconds");
+		server.players.tell("Reloading in 8 seconds");
 	});
 
 	server.scheduleInTicks(60, callback => {
-		server.players.tell("Reloading in 2 seconds");
+		server.players.tell("Reloading in 7 seconds");
 	});
 
 	server.scheduleInTicks(80, callback => {
-		server.players.tell("Reloading in 1 second");
+		server.players.tell("Reloading in 6 seconds");
 	});
 
 	server.scheduleInTicks(100, callback => {
+		server.players.tell("Reloading in 5 seconds");
+	});
+
+	server.scheduleInTicks(120, callback => {
+		server.players.tell("Reloading in 4 seconds");
+	});
+
+	server.scheduleInTicks(140, callback => {
+		server.players.tell("Reloading in 3 seconds");
+	});
+
+	server.scheduleInTicks(160, callback => {
+		server.players.tell("Reloading in 2 seconds");
+	});
+
+	server.scheduleInTicks(180, callback => {
+		server.players.tell("Reloading in 1 second");
+	});
+
+	server.scheduleInTicks(200, callback => {
 		server.players.tell("Reloading...");
 		server.runCommandSilent("reload");
 	});
