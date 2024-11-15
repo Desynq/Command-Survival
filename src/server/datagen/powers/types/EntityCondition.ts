@@ -63,6 +63,17 @@ export namespace EntityCondition {
 
 
 
+	export interface IStatusEffect extends Base {
+		type: "origins:status_effect",
+		effect: Special.MobEffect,
+		min_amplifier?: number,
+		max_amplifier?: number,
+		min_duration?: number,
+		max_duration?: number
+	}
+
+
+
 	export interface IOr extends Base {
 		type: "origins:or",
 		conditions: AnyType[];
@@ -91,5 +102,5 @@ export namespace EntityCondition {
 		};
 	}
 
-	export type AnyType = ILiving | IAir | IResource | IEntityType | IAnd | IOr;
+	export type AnyType = ILiving | IAir | IResource | IEntityType | IStatusEffect | IAnd | IOr;
 }

@@ -1,6 +1,11 @@
 global.events = {
-	LivingEntityUseItemEvent$Finish(event: Internal.LivingEntityUseItemEvent$Finish): void {}
+	LivingEntityUseItemEvent$Finish(event: Internal.LivingEntityUseItemEvent$Finish): void {},
+	VanillaGameEvent(event: Internal.VanillaGameEvent): void {}
 };
+
+global.effectTick = {
+	Pinged(entity: Internal.LivingEntity, effectLvl: number): void {}
+}
 
 
 
@@ -18,9 +23,7 @@ StartupEvents.registry("minecraft:mob_effect", event => {
 	event.create("pinged")
 		.color(Color.DARK_AQUA)
 		.harmful()
-		.effectTick((entity, effectLvl) => {
-			// global.PingedMobEffect.tick()
-		})
+		.effectTick((entity, effectLvl) => global.effectTick.Pinged(entity, effectLvl))
 		.displayName(Component.darkAqua("Pinged") as any)
 });
 
@@ -28,3 +31,4 @@ StartupEvents.registry("minecraft:mob_effect", event => {
 
 
 ForgeEvents.onEvent("net.minecraftforge.event.entity.living.LivingEntityUseItemEvent$Finish", event => global.events.LivingEntityUseItemEvent$Finish(event));
+ForgeEvents.onEvent("net.minecraftforge.event.VanillaGameEvent", event => global.events.VanillaGameEvent(event));

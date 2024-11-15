@@ -13,6 +13,8 @@ export const $ResourceKey = Java.loadClass("net.minecraft.resources.ResourceKey"
 
 export const $Player = Java.loadClass("net.minecraft.world.entity.player.Player");
 
+export const $LivingEntity = Java.loadClass("net.minecraft.world.entity.LivingEntity");
+
 export const $Tag = Java.loadClass("net.minecraft.nbt.Tag");
 export const $CompoundTag = Java.loadClass("net.minecraft.nbt.CompoundTag");
 export const $StringTag = Java.loadClass('net.minecraft.nbt.StringTag');

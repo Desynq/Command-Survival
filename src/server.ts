@@ -23,6 +23,10 @@ import "./server/commands/Update";
 
 import "./server/events/LivingEntityUseItemEvent$Finish";
 import "./server/events/Advancement";
+import "./server/events/InventoryChanged";
+import "./server/events/VanillaGameEvent";
+import "./server/events/MobEffectTick";
+import "./server/events/EntityTick";
 
 
 

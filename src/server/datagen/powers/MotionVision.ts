@@ -1,6 +1,7 @@
-import { BiEntityCondition } from "./types/BiEntityCondition";
-import { EntityCondition } from "./types/EntityCondition";
-import { PowerType } from "./types/PowerType";
+import { PINGED_RESOURCE_ID } from "../../events/MobEffectTick";
+import { BiEntityCondition as bec } from "./types/BiEntityCondition";
+import { EntityCondition as ec } from "./types/EntityCondition";
+import { PowerType as pt } from "./types/PowerType";
 
 
 
@@ -11,35 +12,32 @@ import { PowerType } from "./types/PowerType";
 
 namespace EntityRenderPower {
 
-	const IS_FAR_AWAY = BiEntityCondition.distance(">", 64);
+	const IS_FAR_AWAY = bec.distance(">", 64);
 
-	const resourceId = "command_survival:global/resource/time-since-last-movement";
+	const IS_NOT_PINGED = bec.target({
+		type: "origins:resource",
+		resource: PINGED_RESOURCE_ID,
+		comparison: "<=",
+		compare_to: 1
+	});
 
-	const PLAYER_HASNT_MOVED = EntityCondition.and(
-		EntityCondition.entityType("minecraft:player"),
-		EntityCondition.resource(resourceId, ">", 5)
-	);
-	const ENTITY_HASNT_MOVED = EntityCondition.resource(resourceId, ">", 20);
-
-	const HASNT_MOVED = BiEntityCondition.target(EntityCondition.or(PLAYER_HASNT_MOVED, ENTITY_HASNT_MOVED));
-
-	export const INSTANCE: PowerType.IPreventEntityRender = {
-		"type": "origins:prevent_entity_render",
-		"bientity_condition": BiEntityCondition.and(
-			BiEntityCondition.target(EntityCondition.living()),
-			BiEntityCondition.or(IS_FAR_AWAY, HASNT_MOVED)
+	export const INSTANCE: pt.IPreventEntityRender = {
+		type: "origins:prevent_entity_render",
+		bientity_condition: bec.and(
+			bec.target(ec.living()),
+			bec.or(IS_FAR_AWAY, IS_NOT_PINGED)
 		)
 	};
 }
 
 namespace EntityGlowPower {
 
-	const WITHIN_32_BLOCKS_OF_SIGHT = BiEntityCondition.and(BiEntityCondition.canSee(), BiEntityCondition.distance("<=", 32));
+	const WITHIN_32_BLOCKS_OF_SIGHT = bec.and(bec.canSee(), bec.distance("<=", 32));
 
-	export const INSTANCE: PowerType.IEntityGlow = {
+	export const INSTANCE: pt.IEntityGlow = {
 		"type": "origins:entity_glow",
-		"entity_condition": EntityCondition.living(),
-		"bientity_condition": BiEntityCondition.or(WITHIN_32_BLOCKS_OF_SIGHT, BiEntityCondition.distance("<=", 8))
+		"entity_condition": ec.living(),
+		"bientity_condition": bec.or(WITHIN_32_BLOCKS_OF_SIGHT, bec.distance("<=", 8))
 	}
 }
 
@@ -52,6 +50,7 @@ export namespace MotionVisionPower {
 	const data = {
 		type: "origins:multiple",
 
+		// PreventEntityRender if Distance > 64 || NotPinged
 		"entity-render": EntityRenderPower.INSTANCE,
 		"entity-glow": EntityGlowPower.INSTANCE,
 
