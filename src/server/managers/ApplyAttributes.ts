@@ -19,7 +19,7 @@ export class ApplyAttributesManager {
 		const resourceId = "command_survival:origins/sculker/absorb_level"
 		const absorbLevel = SculkOrigin.getAbsorbLevel(this.player);
 
-		let multiplier = [-0.4, -0.2, 0, 0.2, 0.4, 0.6][absorbLevel];
+		let multiplier = [-0.5, -0.4, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5][absorbLevel];
 		Modifier.SCULKER.MAX_HEALTH.add(this.player, multiplier, "multiply_total", true);
 		Modifier.SCULKER.ATTACK_DAMAGE.add(this.player, multiplier, "multiply_total");
 		Modifier.SCULKER.ATTACK_SPEED.add(this.player, multiplier, "multiply_total");

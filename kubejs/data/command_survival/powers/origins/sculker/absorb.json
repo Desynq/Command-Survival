@@ -12,7 +12,7 @@
 	"level": {
 		"type": "origins:resource",
 		"min": 0,
-		"max": 5,
+		"max": 10,
 		"start_value": 0,
 		"hud_render": {
 			"should_render": true,
