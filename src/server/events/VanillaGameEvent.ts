@@ -16,8 +16,11 @@ function createAABB(x: number, y: number, z: number, distance: number): Internal
 
 
 global.events.VanillaGameEvent = function (event: Internal.VanillaGameEvent) {
-	const { cause: sourceEntity, level } = event;
+	const { cause: sourceEntity, level, vanillaEvent } = event;
 	if (!(sourceEntity instanceof $LivingEntity)) {
+		return;
+	}
+	if (sourceEntity.crouching && vanillaEvent.name === "step") {
 		return;
 	}
 
