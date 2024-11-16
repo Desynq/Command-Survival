@@ -7,7 +7,7 @@ export abstract class RecipesHandler {
 	protected static handlers: RecipesHandler[] = [];
 	protected event!: Internal.RecipesEventJS;
 
-	protected abstract handleEvent(event: Internal.RecipesEventJS): void
+	protected abstract handleEvent(): void
 
 
 
@@ -32,7 +32,7 @@ export abstract class RecipesHandler {
 	public static register(event: Internal.RecipesEventJS): void {
 		this.handlers.forEach(handler => {
 			handler.event = event;
-			handler.handleEvent(event);
+			handler.handleEvent();
 		});
 	}
 }
@@ -64,8 +64,8 @@ class LesRaisinsArmorRecipes extends RecipesHandler {
 		RecipesHandler.handlers.push(this);
 	}
 
-	protected handleEvent(event: Internal.RecipesEventJS): void {
-		event.remove({ mod: "lrarmor" });
+	protected handleEvent(): void {
+		this.event.remove({ mod: "lrarmor" });
 	}
 }
 
@@ -88,9 +88,7 @@ class DyeRecipes extends RecipesHandler {
 		RecipesHandler.handlers.push(this);
 	}
 
-	protected handleEvent(event: Internal.RecipesEventJS): void {
-		this.event = event;
-
+	protected handleEvent(): void {
 		this.newDyeRecipe(Color.GREEN, 2, Color.BLUE, Color.YELLOW);
 
 		this.newDyeRecipe(Color.BROWN, 3, Color.BLUE, Color.RED, Color.YELLOW);
@@ -141,9 +139,7 @@ class AlexsCavesRecipes extends RecipesHandler {
 		RecipesHandler.handlers.push(this);
 	}
 
-	protected handleEvent(event: Internal.RecipesEventJS): void {
-		this.event = event;
-
+	protected handleEvent(): void {
 		this
 			.newCaveTabletRecipe(
 				Cave.MAGNETIC_CAVES,
