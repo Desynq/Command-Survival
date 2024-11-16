@@ -64,49 +64,6 @@ AdminCommand.GetMoneyFromPlayer = function (context) {
  * @param {Internal.CommandContext<Internal.CommandSourceStack>} context
  */
 AdminCommand.Reload = function (context) {
-	const server = context.source.server;
-
-	server.players.tell("Reloading in 10 seconds");
-
-	server.scheduleInTicks(20, callback => {
-		server.players.tell("Reloading in 9 seconds");
-	});
-	server.scheduleInTicks(40, callback => {
-		server.players.tell("Reloading in 8 seconds");
-	});
-
-	server.scheduleInTicks(60, callback => {
-		server.players.tell("Reloading in 7 seconds");
-	});
-
-	server.scheduleInTicks(80, callback => {
-		server.players.tell("Reloading in 6 seconds");
-	});
-
-	server.scheduleInTicks(100, callback => {
-		server.players.tell("Reloading in 5 seconds");
-	});
-
-	server.scheduleInTicks(120, callback => {
-		server.players.tell("Reloading in 4 seconds");
-	});
-
-	server.scheduleInTicks(140, callback => {
-		server.players.tell("Reloading in 3 seconds");
-	});
-
-	server.scheduleInTicks(160, callback => {
-		server.players.tell("Reloading in 2 seconds");
-	});
-
-	server.scheduleInTicks(180, callback => {
-		server.players.tell("Reloading in 1 second");
-	});
-
-	server.scheduleInTicks(200, callback => {
-		server.players.tell("Reloading...");
-		server.runCommandSilent("reload");
-	});
 }
 
 /**
@@ -155,83 +112,79 @@ AdminCommand.spyPlayerStats = function (context) {
 
 
 
-ServerEvents.commandRegistry(event => {
-	event.register($Commands.literal("admin")
-		.requires(executor => executor.hasPermission(4))
-		/**
-		 * /admin items_solid change <item> <new_amount>
-		 * 
-		 */
-		.then($Commands.literal("items_sold")
+// ServerEvents.commandRegistry(event => {
+// 	event.register($Commands.literal("admin")
+// 		.requires(executor => executor.hasPermission(4))
+// 		/**
+// 		 * /admin items_solid change <item> <new_amount>
+// 		 * 
+// 		 */
+// 		.then($Commands.literal("items_sold")
 
-			.then($Commands.literal("change")
-				.then($Commands.argument("item", $Arguments.STRING.create(event))
-					.suggests((context, builder) => suggestSellableItem(context, builder))
-					.then($Commands.argument("new_amount", $Arguments.INTEGER.create(event))
-						.executes(context => {
-							AdminCommand.ItemsSoldChange(context);
-							return 1;
-						})
-					)
-				)
-			)
-		)
+// 			.then($Commands.literal("change")
+// 				.then($Commands.argument("item", $Arguments.STRING.create(event))
+// 					.suggests((context, builder) => suggestSellableItem(context, builder))
+// 					.then($Commands.argument("new_amount", $Arguments.INTEGER.create(event))
+// 						.executes(context => {
+// 							AdminCommand.ItemsSoldChange(context);
+// 							return 1;
+// 						})
+// 					)
+// 				)
+// 			)
+// 		)
 
-		/**
-		 * /admin money add <player> <amount>
-		 * /admin money get <player>
-		 * 
-		 */
-		.then($Commands.literal("money")
-			.then($Commands.literal("add")
-				.then($Commands.argument("username", $Arguments.STRING.create(event))
-					.then($Commands.argument("amount", $Arguments.DOUBLE.create(event))
-						.executes(context => {
-							AdminCommand.AddMoneyToPlayer(context);
-							return 1;
-						})
-					)
-				)
-			)
-			.then($Commands.literal("get")
-				.then($Commands.argument("username", $Arguments.STRING.create(event))
-					.executes(context => {
-						AdminCommand.GetMoneyFromPlayer(context);
-						return 1;
-					})
-				)
-			)
-		)
+// 		/**
+// 		 * /admin money add <player> <amount>
+// 		 * /admin money get <player>
+// 		 * 
+// 		 */
+// 		.then($Commands.literal("money")
+// 			.then($Commands.literal("add")
+// 				.then($Commands.argument("username", $Arguments.STRING.create(event))
+// 					.then($Commands.argument("amount", $Arguments.DOUBLE.create(event))
+// 						.executes(context => {
+// 							AdminCommand.AddMoneyToPlayer(context);
+// 							return 1;
+// 						})
+// 					)
+// 				)
+// 			)
+// 			.then($Commands.literal("get")
+// 				.then($Commands.argument("username", $Arguments.STRING.create(event))
+// 					.executes(context => {
+// 						AdminCommand.GetMoneyFromPlayer(context);
+// 						return 1;
+// 					})
+// 				)
+// 			)
+// 		)
 
-		.then($Commands.literal("player")
-			.then($Commands.argument("username", $Arguments.STRING.create(event))
-				.then($Commands.literal("stats")
-					.executes(context => AdminCommand.spyPlayerStats(context))
-				)
-			)
-		)
+// 		.then($Commands.literal("player")
+// 			.then($Commands.argument("username", $Arguments.STRING.create(event))
+// 				.then($Commands.literal("stats")
+// 					.executes(context => AdminCommand.spyPlayerStats(context))
+// 				)
+// 			)
+// 		)
 
-		.then($Commands.literal("reload")
-			.executes(context => {
-				AdminCommand.Reload(context);
-				return 1;
-			})
-			.then($Commands.literal("fast")
-				.executes(context => AdminCommand.ReloadFast(context))
-			)
-		)
+// 		.then($Commands.literal("reload")
+// 			.then($Commands.literal("fast")
+// 				.executes(context => AdminCommand.ReloadFast(context))
+// 			)
+// 		)
 
-		.then($Commands.literal("add_player")
-			.then($Commands.argument("username", $Arguments.STRING.create(event))
-				.then($Commands.argument("string_uuid", $Arguments.STRING.create(event))
-					.executes(context => {
-						AdminCommand.AddPlayer(context);
-						return 1;
-					})
-				)
-			)
-		)
+// 		.then($Commands.literal("add_player")
+// 			.then($Commands.argument("username", $Arguments.STRING.create(event))
+// 				.then($Commands.argument("string_uuid", $Arguments.STRING.create(event))
+// 					.executes(context => {
+// 						AdminCommand.AddPlayer(context);
+// 						return 1;
+// 					})
+// 				)
+// 			)
+// 		)
 
-		.then($Commands.literal("spawn"))
-	);
-});
+// 		.then($Commands.literal("spawn"))
+// 	);
+// });

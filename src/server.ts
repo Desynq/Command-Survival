@@ -18,6 +18,7 @@ import "./server/world/dimension/MystFacility";
 
 import "./server/commands/Run";
 import "./server/commands/Update";
+import "./server/commands/Admin";
 
 import "./server/events/LivingEntityUseItemEvent$Finish";
 import "./server/events/Advancement";
