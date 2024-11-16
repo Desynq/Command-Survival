@@ -4,13 +4,15 @@ import { $Commands } from "../../libraries/JavaClasses";
 
 
 
+const RELOAD_START_SECONDS = 15;
 
 class ReloadSchedule {
 	private secondsLeft: number;
 
-	public constructor(initialSeconds: number, secondsLeft: number) {
+	public constructor(secondsLeft: number) {
 		this.secondsLeft = secondsLeft;
-		Utils.server.scheduleInTicks((initialSeconds - this.secondsLeft) * 20, () => this.future());
+
+		Utils.server.scheduleInTicks((RELOAD_START_SECONDS - this.secondsLeft) * 20, () => this.future());
 	}
 
 	private future() {
@@ -37,11 +39,9 @@ class AdminCommand {
 	}
 
 	private static reload(context: Internal.CommandContext<Internal.CommandSourceStack>): number {
-		const startSeconds = 15;
-		for (let seconds = startSeconds; seconds >= 0; seconds--) {
-			new ReloadSchedule(startSeconds, seconds);
+		for (let seconds = RELOAD_START_SECONDS; seconds >= 0; seconds--) {
+			new ReloadSchedule(seconds);
 		}
-
 		return 1;
 	}
 }
