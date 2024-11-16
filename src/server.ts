@@ -27,8 +27,6 @@ import "./server/events/VanillaGameEvent";
 import "./server/events/MobEffectTick";
 import "./server/events/EntityTick";
 
-import "./server/datagen/recipes/Cleanup";
-
 
 
 ServerEvents.recipes(event => {
