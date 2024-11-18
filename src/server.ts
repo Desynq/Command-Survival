@@ -26,6 +26,7 @@ import "./server/events/InventoryChanged";
 import "./server/events/VanillaGameEvent";
 import "./server/events/MobEffectTick";
 import "./server/events/EntityTick";
+import "./server/events/RightClickBlock";
 
 
 
