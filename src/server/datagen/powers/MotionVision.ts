@@ -21,10 +21,13 @@ namespace EntityRenderPower {
 		compare_to: 1
 	});
 
+	const IS_NOT_REALLY_CLOSE = bec.distance(">", 1);
+
 	export const INSTANCE: pt.IPreventEntityRender = {
 		type: "origins:prevent_entity_render",
 		bientity_condition: bec.and(
 			bec.target(ec.living()),
+			IS_NOT_REALLY_CLOSE,
 			bec.or(IS_FAR_AWAY, IS_NOT_PINGED)
 		)
 	};

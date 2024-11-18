@@ -12,6 +12,11 @@
 					}
 				},
 				{
+					"type": "origins:distance",
+					"comparison": ">",
+					"compare_to": 1
+				},
+				{
 					"type": "origins:or",
 					"conditions": [
 						{
