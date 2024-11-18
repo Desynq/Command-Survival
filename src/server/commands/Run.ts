@@ -1,4 +1,5 @@
 import { $Commands } from "../../libraries/JavaClasses";
+import { KeyPressEvent } from "../events/key/PrimaryActive";
 import { ApplyAttributesManager } from "../managers/ApplyAttributes";
 import { SculkOrigin } from "../origins/Sculk";
 import { SculkerAbsorb } from "./run/SculkerAbsorb";
@@ -13,6 +14,12 @@ export class RunCommand {
 			.then(
 				$Commands.literal("sculker_absorb").executes(context => {
 					SculkerAbsorb.run(context.source.playerOrException as Player);
+					return 1;
+				})
+			)
+			.then(
+				$Commands.literal("key_primary_active").executes(context => {
+					KeyPressEvent.PrimaryActiveKey.press(context.source.playerOrException as Player);
 					return 1;
 				})
 			)

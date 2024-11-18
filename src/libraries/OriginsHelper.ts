@@ -22,30 +22,32 @@ export namespace OriginsHelper {
 
 
 	export function entity(entity: Internal.Entity) {
-		class Entity {
+		return new OriginsEntityHelper(entity);
+	}
+}
 
-			public getOriginId(originLayerId?: string): string | undefined {
-				const layer = getOriginLayer(originLayerId);
-				let output: string | undefined;
-				$IOriginContainer.get(entity).ifPresent(container => {
-					const origin = container.getOrigin(layer);
-					output = `${origin.namespace}:${origin.path}`;
-				});
-				return output;
+export class OriginsEntityHelper {
+
+	public constructor(private entity: Internal.Entity) { }
+
+	public getOriginId(originLayerId?: string): string | undefined {
+		const layer = OriginsHelper.getOriginLayer(originLayerId);
+		let output: string | undefined;
+		$IOriginContainer.get(this.entity).ifPresent(container => {
+			const origin = container.getOrigin(layer);
+			output = `${origin.namespace}:${origin.path}`;
+		});
+		return output;
+	}
+
+	public hasPower(powerId: string): boolean {
+		const container: Internal.LazyOptional<Internal.IPowerContainer> = $IPowerContainer.get(this.entity);
+		let hasPower: boolean = false;
+		container.map(x => {
+			if (x.hasPower(powerId)) {
+				hasPower = true;
 			}
-
-			public hasPower(powerId: string): boolean {
-				const container: Internal.LazyOptional<Internal.IPowerContainer> = $IPowerContainer.get(entity);
-				let hasPower: boolean = false;
-				container.map(x => {
-					if (x.hasPower(powerId)) {
-						hasPower = true;
-					}
-				});
-				return hasPower;
-			}
-		}
-
-		return new Entity;
+		});
+		return hasPower;
 	}
 }
