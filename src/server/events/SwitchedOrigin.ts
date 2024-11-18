@@ -35,7 +35,6 @@ class SwitchedOriginEvent {
 
 	private skills(): void {
 		$OriginsAPI.getOriginsRegistry().registryKeySet().forEach(resourceKey => {
-			this.player.tell(`puffish_skills category lock ${this.player.username} puffish_skills:origins/${resourceKey.path}` as any);
 			Utils.server.runCommandSilent(`puffish_skills category lock ${this.player.username} puffish_skills:origins/${resourceKey.path}`);
 		});
 
