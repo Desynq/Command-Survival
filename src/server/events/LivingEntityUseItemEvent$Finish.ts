@@ -5,9 +5,8 @@ global.events.LivingEntityUseItemEvent$Finish = function (event: Internal.Living
 	if (event.entity.type !== "minecraft:player") {
 		return;
 	}
-	event.entity.tell("Wow! You finished using an item, congratulations!" as any);
 
-	const origin = OriginsHelper.entity(event.entity).getOriginId();
+	const origin = OriginsHelper.entity(event.entity as any).getOriginId();
 
 	switch (origin) {
 		case "command_survival:sculker":
