@@ -41,7 +41,6 @@
         "logs": true,
         "patchouli_books": true,
         "quests_structures": true,
-
         "icon.png": true,
         "options.txt": true,
         "rhino.local.properties": true,

@@ -37,3 +37,6 @@ export const $IOriginContainer = Java.loadClass("io.github.edwinmindcraft.origin
 export const $OriginsAPI = Java.loadClass("io.github.edwinmindcraft.origins.api.OriginsAPI");
 
 export const $OriginLayer = Java.loadClass("io.github.edwinmindcraft.origins.api.origin.OriginLayer");
+
+export const $ServerPlayer = Java.loadClass("net.minecraft.server.level.ServerPlayer");
+export const $GameType = Java.loadClass("net.minecraft.world.level.GameType");
