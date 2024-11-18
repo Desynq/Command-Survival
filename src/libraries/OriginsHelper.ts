@@ -6,12 +6,17 @@ import { $IOriginContainer, $IPowerContainer, $OriginLayer, $OriginsAPI } from "
 
 export namespace OriginsHelper {
 
-	export function getOriginLayer(originLayerId?: string) {
+	export function getOriginLayer(originLayerId?: string): io.github.edwinmindcraft.origins.api.origin.OriginLayer {
 		return $OriginsAPI.getLayersRegistry().get(originLayerId ?? "origins:origin");
 	}
 
-	export function getOrigin(originId: string) {
+	export function getOrigin(originId: string): Internal.Origin {
 		return $OriginsAPI.getOriginsRegistry().get(originId);
+	}
+
+	export function getOriginNamespace(originId: string): string | null {
+		const match = originId.match(/:(.+)/);
+		return match ? match[1] : null;
 	}
 
 

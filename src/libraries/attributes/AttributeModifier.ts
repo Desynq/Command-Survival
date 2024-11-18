@@ -30,6 +30,79 @@ export class AttributeModifier {
 			"minecraft:generic.movement_speed",
 			"62034afe-ba04-45cb-bfc4-d16696e0700e"
 		),
+		[Symbol.iterator]: function* (this: Record<string, AttributeModifier>): Generator<AttributeModifier> {
+			for (const key of Object.keys(this)) {
+				yield this[key];
+			}
+		}
+	}
+
+	public static readonly HUMAN_JACK_OF_ALL_TRADES = {
+		[Symbol.iterator]: function* (this: Record<string, AttributeModifier>): Generator<AttributeModifier> {
+			for (const key of Object.keys(this)) {
+				yield this[key];
+			}
+		},
+		MAX_HEALTH: new this(
+			"Human: Jack of All Trades",
+			"minecraft:generic.max_health",
+			"f8310f1e-6d65-4200-adb3-7497200f4ff6"
+		),
+		ARMOR: new this(
+			"Human: Jack of All Trades",
+			"minecraft:generic.armor",
+			"45927081-d1eb-4128-8457-84f29765a1ec"
+		),
+		ARMOR_TOUGHNESS: new this(
+			"Human: Jack of All Trades",
+			"minecraft:generic.armor_toughness",
+			"c125d47b-940f-42d7-89f6-f50fee2271dd"
+		),
+		ATTACK_DAMAGE: new this(
+			"Human: Jack of All Trades",
+			"minecraft:generic.attack_damage",
+			"5b266a8f-2cda-4c4e-bb55-62078651c366"
+		),
+		ATTACK_KNOCKBACK: new this(
+			"Human: Jack of All Trades",
+			"minecraft:generic.attack_knockback",
+			"2e77410c-956a-4b58-a5c5-676e7aa01fff"
+		),
+		ATTACK_SPEED: new this(
+			"Human: Jack of All Trades",
+			"minecraft:generic.attack_speed",
+			"c82948fe-08e5-4e49-b389-102a5e79c119"
+		),
+		LUCK: new this(
+			"Human: Jack of All Trades",
+			"minecraft:generic.luck",
+			"2fe13953-9ed2-47d4-ad08-668c06c5cd56"
+		),
+		MOVEMENT_SPEED: new this(
+			"Human: Jack of All Trades",
+			"minecraft:generic.movement_speed",
+			"14532a34-13bc-427f-9702-764acc4bd85e"
+		),
+		SWIM_SPEED: new this(
+			"Human: Jack of All Trades",
+			"forge:swim_speed",
+			"0d53f52b-9581-42ba-ad22-46fbdec46c4b"
+		),
+		DIG_SPEED: new this(
+			"Human: Jack of All Trades",
+			"additionalentityattributes:dig_speed",
+			"6e158240-3f58-4af2-b780-726864f9ee92"
+		),
+		LUNG_CAPACITY: new this(
+			"Human: Jack of All Trades",
+			"additionalentityattributes:lung_capacity",
+			"8e4b6aa9-4df2-4a1e-98be-8b1a83c7af56"
+		),
+		MAGIC_PROTECTION: new this(
+			"Human: Jack of All Trades",
+			"additionalentityattributes:magic_protection",
+			"0eed1baf-9b36-44eb-a8ef-61c1af3e1bb0"
+		),
 	}
 
 	public uuid: Internal.UUID;

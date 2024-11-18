@@ -1,3 +1,4 @@
+import { OriginsHelper } from "../../libraries/OriginsHelper";
 
 
 
@@ -6,6 +7,12 @@ export class SculkOrigin {
 	private static readonly RESOURCE_IDS = {
 		ABSORB_LEVEL: "command_survival:origins/sculker/absorb_level"
 	};
+
+	public static isSculker(player: Player): boolean {
+		return OriginsHelper.entity(player as any).getOriginId() !== "command_survival:sculker";
+	}
+
+
 	public static getAbsorbLevel(player: Player): number {
 		return Utils.server.runCommandSilent(`resource get ${player.username} ${this.RESOURCE_IDS.ABSORB_LEVEL}`);
 	}

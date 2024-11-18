@@ -21,7 +21,7 @@ import "./server/commands/Update";
 import "./server/commands/Admin";
 
 import "./server/events/LivingEntityUseItemEvent$Finish";
-import "./server/events/Advancement";
+import "./server/events/SwitchedOrigin";
 import "./server/events/InventoryChanged";
 import "./server/events/VanillaGameEvent";
 import "./server/events/MobEffectTick";

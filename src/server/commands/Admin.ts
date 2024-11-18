@@ -44,6 +44,10 @@ class AdminCommand {
 		}
 		return 1;
 	}
+
+	private static give(context: Internal.CommandContext<Internal.CommandSourceStack>): number {
+		return 1;
+	}
 }
 
 ServerEvents.commandRegistry(event => AdminCommand.register(event));
