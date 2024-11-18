@@ -7,7 +7,7 @@ BlockEvents.rightClicked(event => {
 	// @ts-ignore
 	const isAdventure = player.gameMode.getGameModeForPlayer() === GameMode.ADVENTURE;
 
-	if (isAdventure && event.block.id === "minecraft:oak_trapdoor") {
+	if (isAdventure && ["minecraft:oak_trapdoor", "minecraft:anvil", "minecraft:crafting_table"].indexOf(event.block.id) !== -1) {
 		event.cancel();
 	}
 });
