@@ -22,5 +22,11 @@
 		"x": 0,
 		"y": 0,
 		"root": false
+	},
+	"c9rgukif536iz6s2": {
+		"definition": "echo_vision",
+		"x": -64,
+		"y": 0,
+		"root": false
 	}
 }
