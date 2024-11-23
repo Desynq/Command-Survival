@@ -1,28 +1,27 @@
-# File path to the .d.ts file
-file_path = "kubejs/probe/generated/internals/internal_14.d.ts"
 
-# The function you want to inject
-method_definition = "subtract(x: number, y: number, z: number): this;"
 
-# Read the content of the file
-with open(file_path, "r") as file:
-	lines = file.readlines()
+def inject_method(internal_number: int, method_definition: str, class_definition: str):
+	file_path = "kubejs/probe/generated/internals/internal_" + str(internal_number) + ".d.ts"
+	with open(file_path, "r") as file:
+		lines = file.readlines()
+	
+	class_index = next((i for i, line in enumerate(lines) if class_definition in line), None)
+	method_exists = any(method_definition in line for line in lines)
 
-# Find the class declaration to inject the method after it
-class_index = next((i for i, line in enumerate(lines) if "class Vec3d" in line), None)
-
-# Check if the method is already present to avoid duplicate insertion
-method_exists = any(method_definition in line for line in lines)
-
-# If class Vec3d is found and the method is not already present, insert the method definition
-if class_index is not None and not method_exists:
-	lines.insert(class_index + 1, f"\t\t{method_definition}\n")
-
-	# Write the updated content back to the file
-	with open(file_path, 'w') as file:
-		file.writelines(lines)
-else:
-	if method_exists:
-		print(f"The method '{method_definition}' already exists in the file.")
+	if class_index is not None and not method_exists:
+		lines.insert(class_index + 1, f"\t\t{method_definition}\n")
+		print(f"inserted '{method_definition}' into '{class_definition}'")
+		with open(file_path, "w") as file:
+			file.writelines(lines)
 	else:
-		print("Vec3d class not found in the file.")
+		if method_exists:
+			print(f"The method '{method_definition}' already exists in the file.")
+		else:
+			print("Vec3d class not found in the file.")
+
+
+
+
+inject_method(14, "subtract(x: number, y: number, z: number): this;", "class Vec3d")
+
+inject_method(43, "tell(message: string): void;", "abstract class Player")
